@@ -1,6 +1,14 @@
 <template>
   <div class="app">
-    app
-    <div class="inner"></div>
+    <Header/>
   </div>
 </template>
+
+<script>
+import Header from './components/Header'
+export default {
+  components: {
+    Header
+  }
+}
+</script>
