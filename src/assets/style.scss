@@ -1,1 +1,8 @@
 $color1: rgb(0, 164, 167);
+$color2: rgb(0, 194, 197);
+
+@mixin center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -9,7 +9,7 @@ export default new vueRouter({
             path: '/home',
         },
         {
-            path: '/commodity',
+            path: '/commodity/:id',
         },
         {
             path: '/longterm-care',
