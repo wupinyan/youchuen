@@ -6,7 +6,7 @@
             首頁
         </router-link>        
         <a :class="{selected:$route.path.search('commodity')>=0}"
-        @click.stop="$emit('toggleCommodityCate', true)">
+        @click.stop="$emit('toggleCommodityCate')">
             商品
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
                 <polyline points="1,1 3,3 1,5" 
@@ -24,9 +24,9 @@
         </router-link>        
 
         <div :class="['commodity-cate',{'open-commodity-cate':openCommodityCate}]">
-            <div class="pre" @click.stop="$emit('toggleCommodityCate', false)">
+            <div class="pre" @click.stop="$emit('toggleCommodityCate')">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
-                    <polyline points="3,1 1,3 3,5" 
+                    <polyline points="1,1 3,3 1,5" 
                         style="fill:none;stroke:currentColor;stroke-width:1" />
                 </svg>
             </div>
@@ -74,11 +74,13 @@ export default {
     left: 100%;
     display: flex;
     flex-direction: column;   
+    transition: left .3s;
     a{
-        line-height: 300%;
+        display: block;
+        padding: 16px 0;
         text-align: center;
         color: white;
-        font-size: 28px;
+        font-size: 24px;
         font-weight: 900;
         position: relative;
         svg{
@@ -94,40 +96,64 @@ export default {
         color: orange;
     }
 
+    .commodity-cate{
+        background-color: $color1;
+        width: 100%;
+        position: absolute;
+        left: 100%;
+        transition: left .3s;
+        .pre{
+            padding: 8px 12px;
+            background-color: $color2;
+            direction: rtl;
+            svg{
+                width: 16px;
+                color: white;
+            }
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .open-commodity-cate{
+        left: 0;
+    }
+
 }
 .open-root-cate{
     left: 0;
 }
 
-.commodity-cate{
-    background-color: $color1;
-    width: 100%;
-    position: absolute;
-    left: 100%;
-    .pre{
-        padding: 8px 12px;
-        background-color: $color2;
-        svg{
-            width: 16px;
-            color: white;
-        }
-    }
-    ul{
-        display: flex;
-        flex-direction: column;
-    }
-}
-.open-commodity-cate{
-    left: 0;
-}
+
+
 
 @media screen and (orientation: landscape) {
     .root-cate{
-        border: solid red;
-        position: relative;
+        height: 100%;
+        position: static;
         flex-direction: row;
         justify-content: space-around;
-        width: 70%;
+        width: 70vw;
+        a{
+            font-size: 20px;
+            svg{
+                display: none;
+            }
+        }
+        .commodity-cate{
+            top: 100%;
+            left: unset;
+            right: 0;
+            width: 300px;
+            transition: width .3s;
+        }
+        .open-commodity-cate{
+            width: 0;
+        }
+    }
+    .open-root-cate{
+        left: unset;
     }
 }
 </style>

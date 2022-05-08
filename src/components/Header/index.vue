@@ -7,38 +7,34 @@
         :openCommodityCate='openCommodityCate'
         @toggleRootCate='toggleRootCate' @toggleCommodityCate='toggleCommodityCate'/>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
-            <line x1="0" y1="2.5" x2="10" y2="2.5"
-                style="stroke:rgb(255,255,255);stroke-width:1"/>
-            <line x1="0" y1="5" x2="10" y2="5"
-                style="stroke:rgb(255,255,255);stroke-width:1"/>
-            <line x1="0" y1="7.5" x2="10" y2="7.5"
-                style="stroke:rgb(255,255,255);stroke-width:1"/>    
-        </svg>
+        <Btn @click.native="toggleRootCate()"/>
 
     </header>
 </template>
 
 <script>
 import Navigation from './Navigation'
+import Btn from './Btn'
 export default {
     data() {
         return {
-            openRootCate: true,
+            openRootCate: false,
             openCommodityCate: false
         }
     },
     methods: {
-        toggleRootCate(openRootCate){
-            this.openRootCate = openRootCate
+        toggleRootCate(){
+            this.openRootCate = !this.openRootCate
         },
-        toggleCommodityCate(openCommodityCate){
-            this.openCommodityCate = openCommodityCate
+        toggleCommodityCate(){
+            this.openCommodityCate = !this.openCommodityCate
         },
     },
     components: {
-        Navigation,
-    }
+    Navigation,
+    Btn,
+    Btn
+}
 }
 </script>
 
@@ -46,8 +42,8 @@ export default {
 @import '../../assets/style.scss';
 header{
     background-color: $color1;
-    padding: 8px 12px;
-    width: 100vw;
+    width: 100%;
+    padding: 8px 0;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -55,15 +51,19 @@ header{
 
     img{
         width: 100px;
+        margin-left: 8px;
     }
 
     svg{
         width: 40px;
+        margin-right: 8px;
     }   
 }
 
 @media screen and (orientation: landscape) {
     header{
+        height: 80px;
+        padding: 0;
         svg{
             display: none;
         }
