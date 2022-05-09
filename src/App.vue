@@ -21,6 +21,7 @@ export default {
 <style lang="scss" scoped>
 .app{
   overflow-x: hidden;
+  height: 100vh;
   .view{
     height: 300px;
   }

@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     props: ['openRootCate', 'openCommodityCate'],
     data() {
@@ -60,7 +61,16 @@ export default {
                 { id:9, name:'血糖機' },
             ]
         }
-    }
+    },
+    created() {
+        axios.get('/api/init')
+            .then( response=>{
+                this.commodityList = response.data
+            })
+            .catch( err=>{
+                console.log(err);
+            })
+    },
 }
 </script>
 
