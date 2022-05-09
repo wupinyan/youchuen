@@ -5,9 +5,9 @@
 
         <Navigation :openRootCate='openRootCate'
         :openCommodityCate='openCommodityCate'
-        @toggleRootCate='toggleRootCate' @toggleCommodityCate='toggleCommodityCate'/>
+         @toggleCommodityCate='toggleCommodityCate'/>
         
-        <Btn @click.native="toggleRootCate()"/>
+        <Btn @click.native="openRootCate=!openRootCate" :openRootCate='openRootCate'/>
 
     </header>
 </template>
@@ -23,12 +23,15 @@ export default {
         }
     },
     methods: {
-        toggleRootCate(){
-            this.openRootCate = !this.openRootCate
-        },
         toggleCommodityCate(){
             this.openCommodityCate = !this.openCommodityCate
         },
+    },
+    watch: {
+        '$route.path'(){
+            this.openRootCate = false
+            this.openCommodityCate = false
+        }
     },
     components: {
     Navigation,
@@ -44,6 +47,7 @@ header{
     background-color: $color1;
     width: 100%;
     padding: 8px 0;
+    box-shadow: 0 0 8px black;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -52,21 +56,13 @@ header{
     img{
         width: 100px;
         margin-left: 8px;
-    }
-
-    svg{
-        width: 40px;
-        margin-right: 8px;
-    }   
+    } 
 }
 
 @media screen and (orientation: landscape) {
     header{
-        height: 80px;
+        height: 56px;
         padding: 0;
-        svg{
-            display: none;
-        }
     }
 }
 </style>

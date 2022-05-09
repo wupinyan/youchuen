@@ -3,24 +3,24 @@
     <div :class="['root-cate',{'open-root-cate':openRootCate}]">
 
         <router-link to="/home" active-class="selected">
-            首頁
+            <span>首頁</span>
         </router-link>        
         <a :class="{selected:$route.path.search('commodity')>=0}"
         @click.stop="$emit('toggleCommodityCate')">
-            商品
+            <span>商品</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
                 <polyline points="1,1 3,3 1,5" 
                     style="fill:none;stroke:currentColor;stroke-width:1" />
             </svg>
         </a>
         <router-link to="/longterm-care"  active-class="selected">
-            長照申請
+            <span>長照申請</span>
         </router-link>
         <router-link to="/oxygen-generator"  active-class="selected">
-            氧氣機租賃
+            <span>氧氣機租賃</span>
         </router-link>
         <router-link to="/connection"  active-class="selected">
-            聯絡店家
+            <span>聯絡店家</span>
         </router-link>        
 
         <div :class="['commodity-cate',{'open-commodity-cate':openCommodityCate}]">
@@ -33,7 +33,7 @@
             <ul>
                 <router-link v-for="(commodity, i) in commodityList" 
                 :to="`/commodity/${commodity.id}`" active-class="selected" :key="i">
-                    {{commodity.name}}
+                    <span>{{commodity.name}}</span>
                 </router-link>
             </ul>
         </div>
@@ -79,6 +79,7 @@ export default {
         display: block;
         padding: 16px 0;
         text-align: center;
+        cursor: pointer;
         color: white;
         font-size: 24px;
         font-weight: 900;
@@ -92,8 +93,9 @@ export default {
             transform: translateY(-50%);
         }
     }
-    .selected{
-        color: orange;
+    .selected > span{
+        padding: 2px 0;
+        border-bottom: solid orange 4px;
     }
 
     .commodity-cate{
@@ -145,11 +147,11 @@ export default {
             top: 100%;
             left: unset;
             right: 0;
-            width: 300px;
+            width: 0;
             transition: width .3s;
         }
         .open-commodity-cate{
-            width: 0;
+            width: 300px;
         }
     }
     .open-root-cate{
