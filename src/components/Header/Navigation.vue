@@ -45,6 +45,7 @@
 
 <script>
 import axios from 'axios'
+// import mail from '../../assets/mail.js'
 export default {
     props: ['openRootCate', 'openCommodityCate'],
     data() {
@@ -63,13 +64,16 @@ export default {
         }
     },
     created() {
-        axios.get('/api/init')
-            .then( response=>{
-                this.commodityList = response.data
-            })
-            .catch( err=>{
-                console.log(err);
-            })
+        // axios.get('/api/init')
+        //     .then( response=>{
+        //         this.commodityList = response.data
+        //     })
+        //     .catch( err=>{
+        //         if (err) {
+        //             this.$store.commit('error/showError')    
+        //             mail('佑春網站', '佑春網站異常')
+        //         } 
+        //     })
     },
 }
 </script>
