@@ -45,7 +45,6 @@
 
 <script>
 import axios from 'axios'
-// import mail from '../../assets/mail.js'
 export default {
     props: ['openRootCate', 'openCommodityCate'],
     data() {
@@ -95,7 +94,7 @@ export default {
         text-align: center;
         cursor: pointer;
         color: white;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 900;
         position: relative;
         svg{
@@ -152,7 +151,6 @@ export default {
         justify-content: space-around;
         width: 70vw;
         a{
-            font-size: 20px;
             svg{
                 display: none;
             }
