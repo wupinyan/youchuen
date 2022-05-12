@@ -3,7 +3,9 @@
 
     <div class="display" v-if="!$store.state.error.error">
       <Header/>
-      <div class="view"></div>
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
       <Footer/>
     </div>
 
@@ -29,10 +31,8 @@ export default {
 .app{
   overflow-x: hidden;
   height: 100vh;
-  .display{
-    .view{
-      height: 300px;
-    }
+  .view{
+    height: 300px;
   }
   
 }
