@@ -2,11 +2,14 @@ import vue from 'vue'
 import vueRouter from 'vue-router'
 vue.use(vueRouter)
 
+import Home from '../pages/Home'
+
 export default new vueRouter({
     mode: 'history',
     routes:[
         {
             path: '/home',
+            component: Home
         },
         {
             path: '/commodity/:id',
@@ -19,6 +22,9 @@ export default new vueRouter({
         },
         {
             path: '/connection',
+        },
+        {
+            path: '/question/:commodity',
         },
         {
             path: '/*',
