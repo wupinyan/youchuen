@@ -97,6 +97,9 @@ export default {
         font-size: 20px;
         font-weight: 900;
         position: relative;
+        span{
+            transition: all .5s;
+        }
         svg{
             width: 16px;
             color: white;
@@ -109,6 +112,7 @@ export default {
     .selected > span{
         padding: 2px 0;
         border-bottom: solid orange 4px;
+        color: orange;
     }
 
     .commodity-cate{
