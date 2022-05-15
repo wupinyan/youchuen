@@ -3,19 +3,30 @@
 
         <ul :class="['img-list']" :style="{left,transition:transition?'left 1s':'unset'}">
             
-                <img src="./home4.png" alt="">
+                <img :src="imgList.slice(-1)" alt="無圖">
 
-                <img src="./home1.png" alt="">
-                <img src="./home2.png" alt="">
-                <img src="./home3.png" alt="">
-                <img src="./home4.png" alt="">
+                <img v-for="(img,key) in imgList" :src="img" :key="key">
 
-                <img src="./home1.png" alt="">
-
+                <img :src="imgList[0]" alt="無圖">
         </ul>
 
         <ul class="text-list">
-            <span :style="{top:'30px'}" :class="{'not-selected':index!==1}">111</span>
+            <span :style="[{color:'whitesmoke','text-shadow':'0 0 4vw black',top:'10%',left:'5%'},index!=1?{top:'-20%',opacity:0}:'']">
+                長照申請<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                找佑春
+            </span>
+            <span :style="[{color:'#444444','text-shadow':'0 0 4vw black',top:'10%',right:'5%'},index!=2?{right:'-25%',opacity:0}:'']">
+                各類<br>&nbsp;&nbsp;&nbsp;
+                醫材
+            </span>
+            <span :style="[{color:'whitesmoke','text-shadow':'0 0 4vw black',top:'10%',left:'15%'},index!=3?{top:'40%',opacity:0}:'']">
+                伴您孝順<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                的夥伴
+            </span>
+            <span :style="[{color:'#444444','text-shadow':'0 0 4vw black',top:'20%',right:'15%'},index!=4?{right:'-15%',opacity:0}:'']">
+                佑春<br>&nbsp;&nbsp;
+                協助您
+            </span>
         </ul>
 
         <div class="btn-list">
@@ -24,7 +35,7 @@
                     style="fill:none;stroke:currentColor;stroke-width:2" />
             </svg> 
             <ul>
-                <li v-for="key in total" :class="{selected:index===key?true:false}" :key="key"/>
+                <li v-for="key in imgList.length" :class="{selected:index===key?true:false}" :key="key"/>
             </ul>
             <svg @click.stop="transfer(1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
                 <polyline points="1,1 3,3 1,5" 
@@ -40,8 +51,13 @@ export default {
     data() {
         return {
             index: 1,
-            total: 4,
-            transition: true
+            transition: true,
+            imgList:[
+                require('./images/home1.png'),
+                require('./images/home2.png'),
+                require('./images/home3.png'),
+                require('./images/home4.png'),
+            ]
         }
     },
     computed: {
@@ -54,7 +70,8 @@ export default {
     },
     methods:{
         transfer(x){
-            const {index, total} = this
+            const {index, imgList} = this
+            const total = imgList.length
             
             if (index>=total && x==1) {
                 this.transition = false
@@ -74,7 +91,15 @@ export default {
                 this.index += x
             }   
         }
-    }
+    },
+    // mounted() {
+    //     this.timer = setInterval( ()=>{
+    //         this.transfer(1)
+    //     }, 6000)
+    // },
+    // beforeDestroy() {
+    //     clearInterval(this.timer)
+    // }
 }
 </script>
 
@@ -84,7 +109,7 @@ export default {
     background-color: rgba($color1, .7);
     margin: 32px 0;
     width: 100vw;
-    height: calc(100vw / 3 + 32px);
+    height: calc(100vw / 3);
     overflow: hidden;
     position: relative;
     .img-list{
@@ -104,10 +129,10 @@ export default {
         position: relative;
         span{
             position: absolute;
-            transition: all 1s;
-        }
-        .not-selected{
-            display: none;
+            font-size: 6vw;
+            font-weight: 900;
+            letter-spacing: 2px;
+            transition: all 2s;
         }
     }
 
@@ -116,7 +141,7 @@ export default {
         position: absolute;
         bottom: 0;
         display: flex;
-        $color: orange;
+        $color: #666666;
         ul{
             width: 100%;
             height: 6vw;
