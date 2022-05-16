@@ -5,6 +5,7 @@
   "scripts": {
     "frontend": "vue-cli-service serve",
     "backend": "cross-env NODE_ENV=development node server/app.js",
+    "start": "cross-env NODE_ENV=production node server/app.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
