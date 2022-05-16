@@ -59,6 +59,12 @@ export default {
                 { id:7, name:'輪椅' },
                 { id:8, name:'輪椅' },
                 { id:9, name:'血糖機' },
+                { id:10, name:'輪椅' },
+                { id:11, name:'耗材' },
+                { id:12, name:'氧氣機' },
+                { id:13, name:'代步車' },
+                { id:14, name:'拐杖' },
+                { id:15, name:'血壓計' },
             ]
         }
     },
