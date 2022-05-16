@@ -69,16 +69,16 @@ export default {
         }
     },
     created() {
-        // axios.get('/api/init')
-        //     .then( response=>{
-        //         this.commodityList = response.data
-        //     })
-        //     .catch( err=>{
-        //         if (err) {
-        //             this.$store.commit('error/showError')    
-        //             mail('佑春網站', '佑春網站異常')
-        //         } 
-        //     })
+        axios.get('/api/init')
+            .then( response=>{
+                this.commodityList = response.data
+            })
+            .catch( err=>{
+                if (err) {
+                    this.$store.commit('error/showError')    
+                    mail('佑春網站', '佑春網站異常')
+                } 
+            })
     },
 }
 </script>
