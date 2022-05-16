@@ -53,6 +53,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 10;
 
     img{
         width: 100px;
