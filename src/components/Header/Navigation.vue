@@ -31,9 +31,9 @@
                 </svg>
             </div>
             <ul>
-                <router-link v-for="(commodity, i) in commodityList" 
-                :to="`/commodity/${commodity.id}`" active-class="selected" :key="i">
-                    <span>{{commodity.name}}</span>
+                <router-link v-for="(com, key) in commodityList" :key="key"
+                :to="`/commodity/${key}`" active-class="selected">
+                    <span>{{com.name}}</span>
                 </router-link>
             </ul>
         </div>
@@ -44,42 +44,17 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
     props: ['openRootCate', 'openCommodityCate'],
-    data() {
-        return {
-            commodityList:[
-                { id:1, name:'輪椅' },
-                { id:2, name:'耗材' },
-                { id:3, name:'氧氣機' },
-                { id:4, name:'代步車' },
-                { id:5, name:'拐杖' },
-                { id:6, name:'血壓計' },
-                { id:7, name:'輪椅' },
-                { id:8, name:'輪椅' },
-                { id:9, name:'血糖機' },
-                { id:10, name:'輪椅' },
-                { id:11, name:'耗材' },
-                { id:12, name:'氧氣機' },
-                { id:13, name:'代步車' },
-                { id:14, name:'拐杖' },
-                { id:15, name:'血壓計' },
-            ]
-        }
-    },
-    created() {
-        axios.get('/api/init')
-            .then( response=>{
-                this.commodityList = response.data
-            })
-            .catch( err=>{
-                if (err) {
-                    this.$store.commit('error/showError')    
-                    mail('佑春網站', '佑春網站異常')
-                } 
-            })
-    },
+    // data() {
+    //     return {
+    //         commodityList: 
+    //     }
+    // },
+    computed: {
+        ...mapState('commodityList', ['commodityList'])
+    }
 }
 </script>
 
@@ -124,6 +99,7 @@ export default {
     .commodity-cate{
         background-color: $color1;
         width: 100%;
+        overflow: hidden;
         position: absolute;
         left: 100%;
         transition: left .3s;
