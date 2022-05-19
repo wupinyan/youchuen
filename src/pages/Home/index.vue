@@ -1,17 +1,5 @@
 <template>
     <main>
-        
-        <ul>
-            <router-link to="/question/mobility-scooter">
-                <img src="./demoimg1.png" alt="">
-            </router-link>
-            <router-link to="/question/oxygen-generator">
-                <img src="./demoimg1.png" alt="">
-            </router-link>
-            <router-link to="/question/sputum-suction-machine">
-                <img src="./demoimg1.png" alt="">
-            </router-link>
-        </ul>
 
         <Swiper/>
 
@@ -26,6 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/style.scss';
 ul{
     width: 100%;
     margin: 16px 0;
@@ -35,10 +24,21 @@ ul{
     a{
         border-radius: 8px;
         margin: 8px 4px;
+        position: relative;
         overflow: hidden;
-        $size: 150px;
+        $size: 200px;
         width: $size;
         height: $size;
+        h3{
+            background-color: rgba(white, .7);
+            width: 100%;
+            margin: 0;
+            color: black;
+            font-weight: 900;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+        }
         img{
             $size: 100%;
             width: $size;
@@ -47,9 +47,9 @@ ul{
             max-height: $size;     
             transition: transform 3s;       
         }
-        img:hover{
-            transform: scale(1.1, 1.1)
-        }
+    }
+    a:hover > img{
+        transform: scale(1.1, 1.1)
     }
     
 }
