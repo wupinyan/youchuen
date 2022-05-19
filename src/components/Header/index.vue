@@ -48,7 +48,7 @@ header{
     width: 100%;
     padding: 8px 0;
     box-shadow: 0 0 8px black;
-    position: sticky;
+    position: relative;
     top: 0;
     display: flex;
     justify-content: space-between;
