@@ -107,7 +107,6 @@ export default {
 @import '../../../assets/style.scss';
 .swiper{
     background-color: rgba($color1, .7);
-    margin: 32px 0;
     width: 100vw;
     height: calc(100vw / 3);
     overflow: hidden;
@@ -141,6 +140,7 @@ export default {
         position: absolute;
         bottom: 0;
         display: flex;
+        background-image: linear-gradient(0deg, black 0%, rgba(white,0));
         $color: #666666;
         ul{
             width: 100%;
