@@ -140,8 +140,8 @@ export default {
         position: absolute;
         bottom: 0;
         display: flex;
-        background-image: linear-gradient(0deg, black 0%, rgba(white,0));
-        $color: #666666;
+        background-image: linear-gradient(0deg, $color1 0%, rgba(white,0));
+        $color: #dddddd;
         ul{
             width: 100%;
             height: 6vw;
@@ -152,7 +152,7 @@ export default {
                 margin: 0 3vw;
                 border: solid 1px back;
                 border-radius: 100%;
-                background-color: rgba($color, .3);
+                background-color: rgba($color, .1);
                 box-shadow: 0 0 8px black;
                 $size: 2vw;
                 width: $size;
