@@ -1,10 +1,10 @@
 <template>
     <div class="swiper">
 
-        <ul class="img-list" :style="{left}">
+        <ul class="poster-list" :style="{left,transition:this.transitionValue}" ref="posterList">
             <li>
                 <img src="./images/home-2-4.png" alt="">
-                <article>
+                <article class="article-show">
                     <h3>各種醫療器材</h3>
                 </article>
             </li>
@@ -37,19 +37,19 @@
 
             <li>
                 <img src="./images/home-2-1.png" alt="">
-                <article>
+                <article class="article-show">
                     <h3>幫您孝順的夥伴</h3>
                 </article>
             </li>
         </ul>
 
-        <div class="btn-list">
+        <div class="btn-list" ref="btn">
             <svg @click.stop="transfer(-1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
                 <polyline points="3,1 1,3 3,5" 
                     style="fill:none;stroke:currentColor;stroke-width:2" />
             </svg> 
             <ul>
-                <li v-for="key in imgList.length" :class="{selected:index===key?true:false}" :key="key"/>
+                <li v-for="key in total" :class="{selected:index===key?true:false}" :key="key"/>
             </ul>
             <svg @click.stop="transfer(1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
                 <polyline points="1,1 3,3 1,5" 
@@ -66,12 +66,7 @@ export default {
         return {
             index: 1,
             transition: true,
-            imgList:[
-                require('./images/home-2-1.png'),
-                require('./images/home-2-2.png'),
-                require('./images/home-2-3.png'),
-                require('./images/home-2-4.png'),
-            ]
+            total: 4
         }
     },
     computed: {
@@ -79,13 +74,12 @@ export default {
             return this.index * -100 +'vw'
         },
         transitionValue(){
-            return this.transition ? 'left 1s' : 'unset'
+            return this.transition ? 'left 1s ease-out' : 'unset'
         }
     },
     methods:{
         transfer(x){
-            const {index, imgList} = this
-            const total = imgList.length
+            const {index, total} = this
             
             if (index>=total && x==1) {
                 this.transition = false
@@ -96,26 +90,50 @@ export default {
                 }, 0);     
             }else if (index<=1 && x==-1) {
                 this.transition = false
-                this.index = total+1         
+               
+                this.index = total+1 
                 setTimeout(() => {
                     this.transition = true
-                    this.index--
-                }, 0);     
+                    this.index--    
+                });
+                
+                 
             }else {
                 this.index += x
             }   
         }
     },
     mounted() {
+        {
+            const cssSelector = 'li:not(:nth-child(1)):not(:nth-last-child(1)) > article'
+            const articleList = this.$refs.posterList.querySelectorAll(cssSelector)
 
+            const io = new IntersectionObserver( entries=>{
+                entries.forEach( (e, i) => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('article-show')
+                    } 
+                    if (!e.isIntersecting) {
+                        e.target.classList.remove('article-show')
+                    }
+                });
+            })
+            articleList.forEach( e => {
+                io.observe(e)    
+            });
+        }
+        
+        {
+            this.timer = setInterval( ()=>{
+                this.transfer(1)
+            }, 5000)
+        }
 
-        // this.timer = setInterval( ()=>{
-        //     this.transfer(1)
-        // }, 6000)
+        
     },
-    // beforeDestroy() {
-    //     clearInterval(this.timer)
-    // }
+    beforeDestroy() {
+        clearInterval(this.timer)
+    }
 }
 </script>
 
@@ -126,14 +144,15 @@ export default {
     width: 100vw;
     height: 75vw;
     overflow: hidden;
+    box-shadow: 0 0 8px black;
     position: relative;
 
-    .img-list {
+    .poster-list {
         display: flex;
         width: fit-content;
         height: 100%;
         position: absolute;
-        transition: left 1s;
+        
         li{
             height: 100%;
             img {
@@ -147,6 +166,10 @@ export default {
                 font-weight: 900;
                 text-shadow: 0 0 4vw black;
                 text-align: center;
+                opacity: 0;
+                position: relative;
+                top: -20%;
+                transition: all 1s ease-out;
                 h3{
                     border-bottom: solid orange;
                     margin: 0;
@@ -156,6 +179,10 @@ export default {
                     margin: 0;
                     font-size: 4vw;
                 }
+            }
+            .article-show{
+                top: 0;
+                opacity: 1;
             }
         }
     }
@@ -201,7 +228,19 @@ export default {
 }
 
 @media (min-width: 768px) {
-    .text-list{
+    .swiper{
+        height: 60vw;
+        .poster-list > li{
+            position: relative;
+            article{
+                position: absolute;
+                top: 0;
+                left: 5%;
+            }
+            .article-show{
+                top: 20%;
+            }
+        }
     }
 }
 </style>

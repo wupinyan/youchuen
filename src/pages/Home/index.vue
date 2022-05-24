@@ -82,7 +82,7 @@ main > ul{
         opacity: 0;
         position: relative;
         top: 10vw;
-        transition: all 1s;
+        transition: all 1s ease-out;
         img{
             height: 100%;
             position: absolute;
@@ -90,12 +90,12 @@ main > ul{
         .text{
             width: fit-content;
             font-weight: 900;
-            text-shadow: 0 0 4vw black;
+            //text-shadow: 0 0 4vw black;
             position: absolute;
             bottom: 100%;
             left: 10%;
             h3{
-                border-bottom: solid red 1vw;
+                //border-bottom: solid red 1vw;
                 margin: 0;
                 width: fit-content;
                 font-size: 7vw;
