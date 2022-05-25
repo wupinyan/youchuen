@@ -3,40 +3,22 @@
 
         <ul class="poster-list" :style="{left,transition:this.transitionValue}" ref="posterList">
             <li>
-                <img src="./images/home-2-4.png" alt="">
+                <img src="./home-2-4.png" alt="">
                 <article class="article-show">
-                    <h3>各種醫療器材</h3>
-                </article>
-            </li>
-
-            <li>
-                <img src="./images/home-2-1.png" alt="">
-                <article>
-                    <h3>幫您孝順的夥伴</h3>
-                </article>
-            </li>
-            <li>
-                <img src="./images/home-2-2.png" alt="">
-                <article>
-                    <h3>長照補助</h3>
-                    <p>本店可協助您申請長照</p>
-                </article>
-            </li>
-            <li>
-                <img src="./images/home-2-3.png" alt="">
-                <article>
-                    <h3>各種醫療器材</h3>
-                </article>
-            </li>
-            <li>
-                <img src="./images/home-2-4.png" alt="">
-                <article>
                     <h3>伴您康復</h3>
                 </article>
             </li>
 
+            <li v-for="(poster,key) in posterList" :key="key">
+                <img :src="poster.img" alt="">
+                <article class="article-show">
+                    <h3>{{poster.title}}</h3>
+                    <p>{{poster.scription}}</p>
+                </article>
+            </li>
+
             <li>
-                <img src="./images/home-2-1.png" alt="">
+                <img src="./home-2-1.png" alt="">
                 <article class="article-show">
                     <h3>幫您孝順的夥伴</h3>
                 </article>
@@ -44,14 +26,14 @@
         </ul>
 
         <div class="btn-list" ref="btn">
-            <svg @click.stop="transfer(-1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
+            <svg @click.stop="clickBtn(-1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
                 <polyline points="3,1 1,3 3,5" 
                     style="fill:none;stroke:currentColor;stroke-width:2" />
             </svg> 
             <ul>
-                <li v-for="key in total" :class="{selected:index===key?true:false}" :key="key"/>
+                <li v-for="key in posterList.length" :class="{selected:index===key?true:false}" :key="key"/>
             </ul>
-            <svg @click.stop="transfer(1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
+            <svg @click.stop="clickBtn(1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
                 <polyline points="1,1 3,3 1,5" 
                     style="fill:none;stroke:currentColor;stroke-width:2" />
             </svg>        
@@ -66,7 +48,24 @@ export default {
         return {
             index: 1,
             transition: true,
-            total: 4
+            posterList: [
+                { 
+                    title:'幫您孝順的夥伴', scription:'',
+                    img:require("./home-2-1.png")
+                },
+                { 
+                    title:'長照補助', scription:'本店可協助您申請長趙',
+                    img:require("./home-2-2.png")
+                },
+                { 
+                    title:'各種醫療器材', scription:'',
+                    img:require("./home-2-3.png")
+                },
+                { 
+                    title:'伴您康復', scription:'',
+                    img:require("./home-2-4.png")
+                },
+            ]
         }
     },
     computed: {
@@ -79,7 +78,8 @@ export default {
     },
     methods:{
         transfer(x){
-            const {index, total} = this
+            const {index, posterList} = this
+            const total = posterList.length
             
             if (index>=total && x==1) {
                 this.transition = false
@@ -87,20 +87,30 @@ export default {
                 setTimeout(() => {
                     this.transition = true
                     this.index++
-                }, 0);     
+                });     
             }else if (index<=1 && x==-1) {
                 this.transition = false
-               
                 this.index = total+1 
                 setTimeout(() => {
                     this.transition = true
                     this.index--    
-                });
-                
-                 
+                });               
             }else {
                 this.index += x
             }   
+        },
+        setInterval(){
+            this.timer = setInterval( ()=>{
+                this.transfer(1)
+            }, 5000)
+        },
+        clearInterval(){
+            clearInterval(this.timer)
+        },
+        clickBtn(x){
+            this.transfer(x)
+            this.clearInterval()
+            this.setInterval()
         }
     },
     mounted() {
@@ -109,13 +119,10 @@ export default {
             const articleList = this.$refs.posterList.querySelectorAll(cssSelector)
 
             const io = new IntersectionObserver( entries=>{
-                entries.forEach( (e, i) => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add('article-show')
-                    } 
-                    if (!e.isIntersecting) {
+                entries.forEach( e => {
+                    e.isIntersecting ?
+                        e.target.classList.add('article-show') :
                         e.target.classList.remove('article-show')
-                    }
                 });
             })
             articleList.forEach( e => {
@@ -124,15 +131,13 @@ export default {
         }
         
         {
-            this.timer = setInterval( ()=>{
-                this.transfer(1)
-            }, 5000)
+            this.setInterval()
         }
 
         
     },
     beforeDestroy() {
-        clearInterval(this.timer)
+        this.clearInterval()
     }
 }
 </script>

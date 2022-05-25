@@ -3,44 +3,14 @@
 
         <Swiper/>
 
-        <ul ref="posterList">
-            <div class="poster">
-                <img src="./home1.png" style="right:0" alt="">
+        <ul class="poster-list" ref="posterList">
+            <li v-for="(poster,key) in posterList" :key="key">
+                <img :src="poster.img" :style="poster.style" alt="">
                 <div class="text">
-                    <h3>電動代步車</h3>
-                    <p>長者出行更安全方便</p>
+                    <h3>{{poster.title}}</h3>
+                    <p>{{poster.scription}}</p>
                 </div>
-            </div>
-            
-            <div class="poster">
-                <img src="./home2.png" style="left:0" alt="">
-                <div class="text">
-                    <h3>氣墊床</h3>
-                    <p>避免壓瘡</p>
-                </div>
-            </div>
-
-            <div class="poster">
-                <img src="./home3.png" style="right:0" alt="">
-                <div class="text">
-                    <h3>輪椅</h3>
-                    <p>高背輪椅、低背輪椅均有</p>
-                </div>
-            </div>
-
-            <div class="poster">
-                <img src="./home4.png" style="right:0" alt="">
-                <div class="text">
-                    <h3>血壓計</h3>
-                </div>
-            </div>
-
-            <div class="poster">
-                <img src="./home5.png" style="right:0" alt="">
-                <div class="text">
-                    <h3>血糖機</h3>
-                </div>
-            </div>
+            </li>
         </ul>
 
         
@@ -51,19 +21,43 @@
 <script>
 import Swiper from './Swiper'
 export default {
-    mounted() {
-        const ioCallback = entries=>{
-            const entry = entries[0]
-            if (entry.isIntersecting) {
-                entry.target.classList.add('poster-show')
-            } 
+    data() {
+        return {
+            posterList: [
+                { 
+                    title:'電動代步車', scription:'長者出行更安全方便',
+                    style:{right:0}, img:require("./home1.png")
+                },
+                { 
+                    title:'氣墊床', scription:'避免壓瘡',
+                    style:{left:0}, img:require("./home2.png")
+                },
+                { 
+                    title:'輪椅', scription:'',
+                    style:{right:0}, img:require("./home3.png")
+                },
+                { 
+                    title:'血壓計', scription:'',
+                    style:{right:0}, img:require("./home4.png")
+                },
+                { 
+                    title:'血糖機', scription:'',
+                    style:{right:0}, img:require("./home5.png")
+                },
+            ]
         }
+    },
+    mounted() {
         const ioOption = {
             rootMargin: '0% 0% 10% 0%'
         }
-        const io = new IntersectionObserver(ioCallback, ioOption)
+        const io = new IntersectionObserver( entries =>{
+            entries.forEach( e => {
+                if (e.isIntersecting) e.target.classList.add('poster-show')
+            });
+        }, ioOption)
         const posterList = this.$refs.posterList
-        posterList.querySelectorAll('[class=poster]').forEach( e => {
+        posterList.querySelectorAll('li').forEach( e => {
             io.observe(e)
         });
     },
@@ -73,9 +67,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/style.scss';
-main > ul{
+main > .poster-list{
     text-align: center;
-    .poster{
+    li{
         margin: 35vw 0 0;
         width: 100vw;
         height: 100vw;
@@ -90,14 +84,13 @@ main > ul{
         .text{
             width: fit-content;
             font-weight: 900;
-            //text-shadow: 0 0 4vw black;
             position: absolute;
             bottom: 100%;
             left: 10%;
             h3{
-                //border-bottom: solid red 1vw;
                 margin: 0;
                 width: fit-content;
+                color: orange;
                 font-size: 7vw;
             }
             p{
@@ -114,33 +107,33 @@ main > ul{
 }
 
 @media (min-width: 768px) {
-    main > ul{
-        .poster {
+    main > .poster-list{
+        li {
             margin: 10vw 0 0;
             width: 100vw;
             height: 50vw;
             img{
-                max-width: 100vw;
+                width: 100vw;
             }
             .text{
                 top: 15%;
             }
         }
 
-        .poster:nth-of-type(2) .text{
+        li:nth-of-type(2) .text{
             left: unset;
             right: 20%;
             top: 30%;
         }
-        .poster:nth-of-type(3) .text{
+        li:nth-of-type(3) .text{
             left: 25%;
             top: 0;
         }
-        .poster:nth-of-type(4) .text{
+        li:nth-of-type(4) .text{
             left: 20%;
             top: 35%;
         }
-        .poster:nth-of-type(5) .text{
+        li:nth-of-type(5) .text{
             left: 20%;
             top: 30%;
         }
