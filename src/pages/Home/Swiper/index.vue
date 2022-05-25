@@ -102,7 +102,7 @@ export default {
         setInterval(){
             this.timer = setInterval( ()=>{
                 this.transfer(1)
-            }, 5000)
+            }, 3000)
         },
         clearInterval(){
             clearInterval(this.timer)

@@ -90,11 +90,12 @@ main > .poster-list{
             h3{
                 margin: 0;
                 width: fit-content;
-                color: orange;
+                color: red;
                 font-size: 7vw;
             }
             p{
                 margin: 0;
+                //color: blue;
                 font-size: 4vw;
             }            
         }
