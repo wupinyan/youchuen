@@ -3,6 +3,7 @@ import vueRouter from 'vue-router'
 vue.use(vueRouter)
 
 import Home from '../pages/Home'
+import OxygenGenerator from '../pages/Oxygen-generator'
 
 export default new vueRouter({
     mode: 'history',
@@ -19,6 +20,7 @@ export default new vueRouter({
         },
         {
             path: '/oxygen-generator',
+            component: OxygenGenerator
         },
         {
             path: '/connection',
@@ -28,7 +30,7 @@ export default new vueRouter({
         },
         {
             path: '/*',
-            redirect: '/home'
+            redirect: '/oxygen-generator'
         }
     ]
 })
