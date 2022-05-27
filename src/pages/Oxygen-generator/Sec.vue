@@ -3,9 +3,9 @@
         <h1>
             <slot name="title"/>
         </h1>
-        <p>
+        <div class="content">
             <slot name="content"/>
-        </p>
+        </div>
         
     </section>
 </template>
@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 section{
-    margin: 10vw 5vw;
+    margin: 12vw 6vw;
     opacity: 0;
     position: relative;
     top: 10vw;
@@ -41,7 +41,7 @@ section{
         font-size: 200%;
         font-weight: 900;
     }
-    p{
+    .content{
         margin: 0 5vw;
         font-size: 120%;
         font-weight: 900;

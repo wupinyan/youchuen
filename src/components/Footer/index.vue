@@ -16,7 +16,6 @@ footer{
         margin: auto;
         width: 200px;
         div{
-            border-left: solid red 3px;
             margin: 8px;
             padding-left: 5px;
             color: white;
