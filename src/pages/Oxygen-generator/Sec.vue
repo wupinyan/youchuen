@@ -33,7 +33,7 @@ section{
     opacity: 0;
     position: relative;
     top: 10vw;
-    transition: all 2s;
+    transition: all 1s;
     h1{
         border-left: solid red 4px;
         margin-bottom: 8px;
