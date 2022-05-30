@@ -50,6 +50,31 @@
 
         <Sec>
             <template v-slot:title>
+                政府補助多少金額
+            </template>
+            <template v-slot:content>  
+                <ul class="qualifications">
+                    <li>
+                        <h3>一般戶</h3>
+                        <p>
+                        </p>
+                    </li>
+                    <li>
+                        <h3></h3>
+                        <p>
+                        </p>
+                    </li>
+                    <li>
+                        <h3></h3>
+                        <p>
+                        </p>
+                    </li>
+                </ul> 
+            </template>
+        </Sec>
+
+        <Sec>
+            <template v-slot:title>
                 如何申請長照
             </template>
             <template v-slot:content>  
