@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <main>
 
         <div class="poster">
             <img class="background" src="./oxygen1.png" alt="">
@@ -81,7 +81,7 @@
             </template>
         </Sec>
 
-    </div>
+    </main>
 </template>
 
 <script>

@@ -3,6 +3,9 @@ import vueRouter from 'vue-router'
 vue.use(vueRouter)
 
 import Home from '../pages/Home'
+import LongtermCare from '../pages/Longterm-care'
+import CareQualifications from '../pages/Care-qualifications'
+import CareSubsidy from '../pages/Care-subsidy'
 import OxygenGenerator from '../pages/Oxygen-generator'
 
 export default new vueRouter({
@@ -17,6 +20,19 @@ export default new vueRouter({
         },
         {
             path: '/longterm-care',
+            component: LongtermCare,
+            children: [
+                {
+                    path: 'care-qualifications',
+                    name: 'care-qualifications',
+                    component: CareQualifications
+                },
+                {
+                    path: 'care-subsidy',
+                    name: 'care-subsidy',
+                    component: CareSubsidy
+                }
+            ]
         },
         {
             path: '/oxygen-generator',
@@ -30,7 +46,7 @@ export default new vueRouter({
         },
         {
             path: '/*',
-            redirect: '/oxygen-generator'
+            redirect: '/longterm-care'
         }
     ]
 })
