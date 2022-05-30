@@ -28,7 +28,8 @@ section{
     margin: 12vw 6vw;
     opacity: 0;
     position: relative;
-    top: 10vw;
+    right: -100vw;
+    transform: skew(30deg);
     transition: all 1s;
     h1{
         border-left: solid red 4px;
@@ -45,7 +46,8 @@ section{
 }
 .section-show{
     opacity: 1;
-    top: 0;
+    right: 0;
+    transform: skew(0);
 }
 
 </style>
