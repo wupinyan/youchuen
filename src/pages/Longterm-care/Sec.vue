@@ -38,6 +38,6 @@ section {
 .section-show {
     opacity: 1;
     left: 0;
-    transform: skew(0deg);
+    transform: skew(0);
 }
 </style>
