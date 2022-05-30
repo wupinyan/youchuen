@@ -13,14 +13,10 @@
 <script>
 export default {
     mounted() {
-        
-        const ioOptions = {
-            rootMargin: '0% 0% 10% 0%'
-        }
         const io = new IntersectionObserver( entries =>{
             const entry = entries[0]
             if (entry.isIntersecting) entry.target.classList.add('section-show')
-        }, ioOptions)
+        })
         const sec = this.$refs.section
         io.observe(sec)
     },
