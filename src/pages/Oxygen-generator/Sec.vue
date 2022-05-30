@@ -13,14 +13,10 @@
 <script>
 export default {
     mounted() {
-        
-        const ioOptions = {
-            rootMargin: '0% 0% 10% 0%'
-        }
         const io = new IntersectionObserver( entries =>{
             const entry = entries[0]
             if (entry.isIntersecting) entry.target.classList.add('section-show')
-        }, ioOptions)
+        })
         const sec = this.$refs.section
         io.observe(sec)
     },
@@ -32,7 +28,8 @@ section{
     margin: 12vw 6vw;
     opacity: 0;
     position: relative;
-    top: 10vw;
+    right: -100vw;
+    transform: skew(30deg);
     transition: all 1s;
     h1{
         border-left: solid red 4px;
@@ -49,7 +46,8 @@ section{
 }
 .section-show{
     opacity: 1;
-    top: 0;
+    right: 0;
+    transform: skew(0);
 }
 
 </style>
