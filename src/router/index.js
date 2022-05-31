@@ -5,6 +5,7 @@ vue.use(vueRouter)
 import Home from '../pages/Home'
 import Subsidy from '../pages/Subsidy'
 import OxygenGenerator from '../pages/Oxygen-generator'
+import Connection from '../pages/Connection'
 
 export default new vueRouter({
     mode: 'history',
@@ -26,10 +27,11 @@ export default new vueRouter({
         },
         {
             path: '/connection',
+            component: Connection
         },
         {
             path: '/*',
-            redirect: '/subsidy'
+            redirect: '/connection'
         }
     ]
 })
