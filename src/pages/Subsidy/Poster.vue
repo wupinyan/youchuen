@@ -1,8 +1,8 @@
 <template>
     <div class="poster">
-        <img src="./longterm-care1.png" alt="">
+        <img src="./subsidy1.png" alt="">
         <article>
-            <h1>長照申請</h1>
+            <h1>補助申請</h1>
             <p>佑春能幫您從頭至申請完成</p>
         </article>
     </div>

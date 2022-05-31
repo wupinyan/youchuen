@@ -2,13 +2,18 @@
     <main>
         <Poster/>
 
+        <h3 class="foreword">
+            您可以採用「長照」或「身障」的方式來申請補助，
+            對於同件商品，這兩種方式只能二選一。
+        </h3>
+
         <Sec>
             <template v-slot:title>
-                誰有資格申請長照
+                誰有資格申請補助
             </template>
             <template v-slot:content>  
-                <h3>以下資格者皆可申請長照</h3>   
-                <ul class="qualifications">
+                <h3>以「長照」來申請必須符合以下條件之一</h3>   
+                <ul class="qualifications-content">
                     <li>
                         <h3>65歲以上獨居老人、衰弱老人：</h3>
                         <p>
@@ -34,7 +39,15 @@
                             或確診為失智症。
                         </p>
                     </li>
-                </ul>           
+                </ul>         
+                <h3>以「身障」來申請須符合以下條件</h3>   
+                <ul class="qualifications-content">
+                    <li>
+                        <p>
+                            領有第七類身心障礙手冊。
+                        </p>
+                    </li>
+                </ul>   
             </template>
         </Sec>
 
@@ -53,34 +66,24 @@
                 政府補助多少金額
             </template>
             <template v-slot:content>  
-                <ul class="qualifications">
-                    <li>
-                        <h3>一般戶</h3>
-                        <p>
-                        </p>
-                    </li>
-                    <li>
-                        <h3></h3>
-                        <p>
-                        </p>
-                    </li>
-                    <li>
-                        <h3></h3>
-                        <p>
-                        </p>
-                    </li>
-                </ul> 
+                <p>
+                    補助金額從幾百元至一萬多元不等，
+                    會依據病人的「嚴重度」和「經濟狀況」
+                    而有所不同，對於每種商品也有不同的補助金額，
+                    請您聯絡佑春，並將您的情形告訴佑春，
+                    佑春會熱心積極的為您解說。
+                </p>
             </template>
         </Sec>
 
         <Sec>
             <template v-slot:title>
-                如何申請長照
+                如何申請補助
             </template>
             <template v-slot:content>  
                 <p>
                     您完全不必花時間去瞭解如何申請，只須聯絡佑春，
-                    佑春會熱心積極的指導您該準備什麼、該怎麼做，
+                    佑春會熱心積極的一步步指導您該準備什麼、該怎麼做，
                     您只須按照佑春的指示即可順利申請完成。 
                 </p>               
             </template>
@@ -99,10 +102,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.qualifications {
+.foreword {
+    margin: 64px 5% 0;
+}
+
+.qualifications-content {
     list-style-type: square;
     li {
-        margin: 16px 0 0 16px;
+        margin-left: 16px;
         h3 {
             margin: 0;
             padding: 0;

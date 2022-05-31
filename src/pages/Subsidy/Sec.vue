@@ -24,11 +24,11 @@ export default {
 
 <style lang="scss" scoped>
 section {
-    margin: 15vw 5%;
+    margin: 64px 5%;
     font-weight: 900;
-    opacity: 1;
+    opacity: 0;
     position: relative;
-    left: -100vw;
+    left: -80vw;
     transform: skew(-30deg);
     transition: all 1s;
     h1 {

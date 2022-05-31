@@ -3,9 +3,7 @@ import vueRouter from 'vue-router'
 vue.use(vueRouter)
 
 import Home from '../pages/Home'
-import LongtermCare from '../pages/Longterm-care'
-import CareQualifications from '../pages/Care-qualifications'
-import CareSubsidy from '../pages/Care-subsidy'
+import Subsidy from '../pages/Subsidy'
 import OxygenGenerator from '../pages/Oxygen-generator'
 
 export default new vueRouter({
@@ -19,20 +17,8 @@ export default new vueRouter({
             path: '/commodity/:id',
         },
         {
-            path: '/longterm-care',
-            component: LongtermCare,
-            children: [
-                {
-                    path: 'care-qualifications',
-                    name: 'care-qualifications',
-                    component: CareQualifications
-                },
-                {
-                    path: 'care-subsidy',
-                    name: 'care-subsidy',
-                    component: CareSubsidy
-                }
-            ]
+            path: '/subsidy',
+            component: Subsidy
         },
         {
             path: '/oxygen-generator',
@@ -46,7 +32,7 @@ export default new vueRouter({
         },
         {
             path: '/*',
-            redirect: '/longterm-care'
+            redirect: '/subsidy'
         }
     ]
 })
