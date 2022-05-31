@@ -3,6 +3,7 @@ import vueRouter from 'vue-router'
 vue.use(vueRouter)
 
 import Home from '../pages/Home'
+import Subsidy from '../pages/Subsidy'
 import OxygenGenerator from '../pages/Oxygen-generator'
 
 export default new vueRouter({
@@ -16,7 +17,8 @@ export default new vueRouter({
             path: '/commodity/:id',
         },
         {
-            path: '/longterm-care',
+            path: '/subsidy',
+            component: Subsidy
         },
         {
             path: '/oxygen-generator',
@@ -30,7 +32,7 @@ export default new vueRouter({
         },
         {
             path: '/*',
-            redirect: '/oxygen-generator'
+            redirect: '/subsidy'
         }
     ]
 })

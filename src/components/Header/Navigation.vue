@@ -13,8 +13,8 @@
                     style="fill:none;stroke:currentColor;stroke-width:1" />
             </svg>
         </a>
-        <router-link to="/longterm-care"  active-class="selected">
-            <span>長照申請</span>
+        <router-link to="/subsidy"  active-class="selected">
+            <span>補助申請</span>
         </router-link>
         <router-link to="/oxygen-generator"  active-class="selected">
             <span>氧氣機租賃</span>
