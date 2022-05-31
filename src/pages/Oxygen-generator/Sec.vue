@@ -28,8 +28,8 @@ section{
     margin: 12vw 6vw;
     opacity: 0;
     position: relative;
-    right: -100vw;
-    transform: skew(30deg);
+    right: -80vw;
+    transform: skew(20deg);
     transition: all 1s;
     h1{
         border-left: solid red 4px;
