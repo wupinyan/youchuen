@@ -28,9 +28,6 @@ export default new vueRouter({
             path: '/connection',
         },
         {
-            path: '/question/:commodity',
-        },
-        {
             path: '/*',
             redirect: '/subsidy'
         }

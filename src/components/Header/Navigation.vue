@@ -47,11 +47,6 @@
 import { mapState } from 'vuex'
 export default {
     props: ['openRootCate', 'openCommodityCate'],
-    // data() {
-    //     return {
-    //         commodityList: 
-    //     }
-    // },
     computed: {
         ...mapState('commodityList', ['commodityList'])
     }
