@@ -60,7 +60,7 @@ header{
     } 
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (min-width: 786px)  {
     header{
         height: 56px;
         padding: 0;
