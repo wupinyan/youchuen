@@ -18,7 +18,7 @@
     width: fit-content;
     background-color: rgba($color1, .7);
     text-align: center;
-    h3 {
+    h3{
         border-bottom: solid orange;
         margin: 0;
     }
