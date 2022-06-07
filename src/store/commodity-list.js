@@ -52,7 +52,14 @@ export default {
                 ]
             },
             6:{
-                name: '沐浴椅'
+                name: '沐浴椅',
+                commodity:[
+                    { name:'富士康 0010', img:'bathchair1.jpg', scription:'可調整高低。' },
+                    { name:'富士康 0013', img:'bathchair2.jpg', scription:'可調整高低，椅背可拆除。' },
+                    { name:'富士康 0015', img:'bathchair3.jpg', scription:'可調整高低，椅背、扶手皆可拆除。' },
+                    { name:'富士康 188', img:'bathchair4.jpg', scription:'可調整高低，可收合。' },
+                    { name:'杏華 9060', img:'bathchair5.jpg', scription:'可調整高低。' },
+                ]
             },
             7:{
                 name: '氣墊床'
