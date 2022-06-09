@@ -131,15 +131,15 @@ export default {
             suctionPump:{
                 name: '抽痰機',
                 commodity:[
-                    //{ name:'抽痰機', model:'', img:'', description:'' },
-                    //{ name:'抽痰機', model:'', img:'', description:'' },
+                    //{ name:'抽痰機', model:'雃博', img:'', description:'' },
+                    //{ name:'抽痰機', model:'御群', img:'', description:'' },
                 ]
             },
             nebulizer:{
                 name: '噴霧器',
                 commodity:[
                     { name:'噴霧器', model:'雃博 AP-100100', img:'nebulizer1.jpg', description:'' },
-                    //{ name:'', model:'', img:'', description:'' },
+                    //{ name:'', model:'', img:'御群', description:'' },
                 ]
             },
             bloodPressureMonitor:{
@@ -162,9 +162,37 @@ export default {
             electrizer:{
                 name: '電療機',
                 commodity:[
-                    //{ name:'', model:'', img:'nebulizer1.jpg', description:'' },
+                    { name:'電療機', model:'雃博 GM350PP', img:'electrizer1.png', description:'低週波。' },
+                    //{ name:'', model:'御群', img:'', description:'低週波。' },
+                    //{ name:'', model:'十全', img:'nebulizer1.jpg', description:'低週波。' },
+                    { name:'電療機', model:'歐姆龍 HV-F128', img:'electrizer4.jpg', description:'低週波。' },
+                ]
+            },
+            thermometer:{
+                name: '體溫計',
+                commodity:[
+                    { name:'額溫槍', model:'福爾 IR42', img:'thermometer1.jpg', description:'' },
+                    { name:'耳溫槍', model:'福爾 IR18', img:'thermometer2.jpg', description:'' },
+                    { name:'耳溫槍', model:'優盛 RA600 Q', img:'thermometer3.webp', description:'' },
+                    { name:'額溫槍', model:'優盛 HA500 Q', img:'thermometer4.webp', description:'' },
+                    { name:'額溫槍', model:'紅豆杉 5577', img:'thermometer5.jpg', description:'' },
+                    //{ name:'額溫槍', model:'杏豐', img:'thermometer5.jpg', description:'' },
+                    { name:'耳溫槍', model:'NISSEI MT-30CPLB', img:'thermometer7.jpg', description:'' },
+                    //{ name:'耳溫槍', model:'百靈', img:'', description:'' },
+                ]
+            },
+            oxihemoMeter:{
+                name: '血氧機',
+                commodity:[
+                    //{ name:'', model:'優盛', img:'', description:'' },
                     //{ name:'', model:'', img:'', description:'' },
-                    //{ name:'', model:'', img:'nebulizer1.jpg', description:'' },
+                    //{ name:'', model:'眾里', img:'nebulizer1.jpg', description:'' },
+                    //{ name:'電療機', model:'十全', img:'electrizer4.jpg', description:'低週波。' },
+                ]
+            },
+            others:{
+                name: '血氧機',
+                commodity:[
                     //{ name:'', model:'', img:'', description:'' },
                 ]
             },
