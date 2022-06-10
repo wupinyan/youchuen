@@ -117,8 +117,8 @@ export default {
                 name: '氧氣機',
                 commodity:[
                     { name:'氧氣機', model:'飛利浦', img:'oxygen-generator1.jpeg', description:'' },
-                    { name:'氧氣機', model:'亞適', img:'oxygenGenerator2.jpg', description:'' },
-                    { name:'氧氣機', model:'十全小天使', img:'oxygenGenerator5.jpg', description:'' },
+                    { name:'氧氣機', model:'亞適', img:'oxygen-generator2.png', description:'' },
+                    { name:'氧氣機', model:'十全小天使', img:'oxygen-generator5.jpg', description:'' },
                 ]
             },
             glucoseMeter:{
@@ -186,24 +186,15 @@ export default {
                     { name:'耳溫槍', model:'優盛 RA600 Q', img:'thermometer3.webp', description:'' },
                     { name:'額溫槍', model:'優盛 HA500 Q', img:'thermometer4.webp', description:'' },
                     { name:'額溫槍', model:'紅豆杉 5577', img:'thermometer5.jpg', description:'' },
-                    //{ name:'額溫槍', model:'杏豐', img:'thermometer5.jpg', description:'' },
-                    { name:'耳溫槍', model:'NISSEI MT-30CPLB', img:'thermometer7.jpg', description:'' },
-                    //{ name:'耳溫槍', model:'百靈', img:'', description:'' },
+                    { name:'額溫槍', model:'NISSEI MT-30CPLB', img:'thermometer6.jpg', description:'' },
                 ]
             },
-            oxihemoMeter:{
+            oximeter:{
                 name: '血氧機',
                 commodity:[
-                    //{ name:'', model:'優盛', img:'', description:'' },
-                    //{ name:'', model:'', img:'', description:'' },
-                    //{ name:'', model:'眾里', img:'nebulizer1.jpg', description:'' },
-                    //{ name:'電療機', model:'十全', img:'electrizer4.jpg', description:'低週波。' },
-                ]
-            },
-            others:{
-                name: '血氧機',
-                commodity:[
-                    //{ name:'', model:'', img:'', description:'' },
+                    { name:'血氧機', model:'優盛 SB100', img:'oximeter1.webp', description:'' },
+                    { name:'血氧機', model:'十全 UP-505', img:'oximeter2.jpg', description:'' },
+                    { name:'血氧機', model:'眾里 AE-XX', img:'oximeter3.jpg', description:'' },
                 ]
             },
         }
