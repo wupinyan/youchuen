@@ -94,10 +94,13 @@ export default {
     .commodity-cate{
         background-color: $color1;
         width: 100%;
+        height: calc(100vh - 56px);
         overflow: hidden;
         position: absolute;
         left: 100%;
-        transition: left .3s;
+        transition: all .3s;
+        display: flex;
+        flex-direction: column;
         .pre{
             padding: 8px 12px;
             background-color: $color2;
@@ -108,8 +111,10 @@ export default {
             }
         }
         ul{
+            height: 100%;
             display: flex;
             flex-direction: column;
+            overflow-y: scroll;
         }
     }
     .open-commodity-cate{
@@ -121,10 +126,7 @@ export default {
     left: 0;
 }
 
-
-
-
-@media screen and (orientation: landscape) {
+@media (min-width: 768px) {
     .root-cate{
         height: 100%;
         position: static;
@@ -138,13 +140,28 @@ export default {
         }
         .commodity-cate{
             top: 100%;
-            left: unset;
-            right: 0;
-            width: 0;
-            transition: width .3s;
+            left: 0;
+            width: 100vw;
+            height: 0;
+            .pre {
+                text-align: center;
+                svg {
+                    transform: rotate(-90deg);
+                }
+            }
+            ul {
+                overflow: hidden;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-content: space-around;
+                a {
+                    margin: 0 24px;                  
+                }
+            }
         }
         .open-commodity-cate{
-            width: 300px;
+            height: 250px;
         }
     }
     .open-root-cate{
