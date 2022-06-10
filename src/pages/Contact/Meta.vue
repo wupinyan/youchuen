@@ -4,7 +4,7 @@
             <slot name="name"/>
         </h3>
         <p>
-            <slot name="scription"/>
+            <slot name="description"/>
         </p>
     </div>
 </template>
@@ -16,11 +16,13 @@
     margin: 5vw auto;
     padding: 12px 40px;
     width: fit-content;
-    background-color: rgba($color1, .7);
+    background-color: $color2;
     text-align: center;
+    color: whitesmoke;
     h3{
         border-bottom: solid orange;
         margin: 0;
+        letter-spacing: 8px;
     }
     p {
         margin: 0;

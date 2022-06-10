@@ -11,7 +11,7 @@
                     </svg>
                     電話
                 </template>
-                <template v-slot:scription>
+                <template v-slot:description>
                     (04) 25883768
                 </template>
             </Meta>
@@ -24,7 +24,7 @@
                     </svg>
                     地址
                 </template>
-                <template v-slot:scription>
+                <template v-slot:description>
                     臺中市 東勢區 第一橫街 65號 <br>
                     (東勢果菜市場正門斜對面)
                 </template>
@@ -37,8 +37,8 @@
                     </svg>
                     電子信箱
                 </template>
-                <template v-slot:scription>
-                    <a href="mailto:youchuen68@gmail.com?subject=佑春網站瀏覽者">
+                <template v-slot:description>
+                    <a style="color:whitesmoke" href="mailto:youchuen68@gmail.com?subject=佑春網站瀏覽者">
                         youchuen68@gmail.com
                     </a>
                 </template>
