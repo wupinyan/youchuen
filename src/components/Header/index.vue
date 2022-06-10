@@ -49,7 +49,7 @@ header{
     height: 40px;
     padding: 8px 0;
     box-shadow: 0 0 8px black;
-    position: relative;
+    position: sticky;
     top: 0;
     display: flex;
     justify-content: space-between;
