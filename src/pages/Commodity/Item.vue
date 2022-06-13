@@ -1,8 +1,8 @@
 <template>
-    <div class="item">
-        <img :src="commodity.img" alt="暫無圖片">
+    <div class="item" ref="item">
+        <img :src="require('../../assets/commodity-images/'+commodity.img)" alt="暫無圖片">
         <div class="text">
-            <h1>{{commodity.name}}</h1>
+            <h2>{{commodity.name}}</h2>
             <p>
                 型號: <br>
                 {{commodity.model}}
@@ -15,7 +15,14 @@
 export default {
     props: ['commodity'],
     mounted() {
-        //console.log(this.commodity)
+        const item = this.$refs.item
+        const io = new IntersectionObserver( entries =>{
+            const entry = entries[0]
+            if (entry.isIntersecting) {
+                entry.target.classList.add('item-show')
+            }
+        })
+        io.observe(item)
     },
 }
 </script>
@@ -29,15 +36,16 @@ export default {
     width: 270px;
     background: white;
     text-align: center;
+    opacity: 0;
+    transform: translateY(10%);
+    transition: all 1s;
     img{
         $size: 180px;
-        width: $size;
-        height: $size;
         max-width: $size;
         max-height: $size;
     }
     .text {
-        h1 {
+        h2 {
             border-bottom: solid orange;
             margin: 0;
             color: $color1;
@@ -47,5 +55,10 @@ export default {
             font-weight: 900;
         }
     }
+}
+
+.item-show {
+    opacity: 1;
+    transform: translateY(0);
 }
 </style>

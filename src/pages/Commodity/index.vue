@@ -1,42 +1,46 @@
 <template>
     <main>
-        <h2>{{infoList.name}}</h2>
-        <ul>
-            <Item v-for="(com, key) in commodityList" :commodity='com' :key='key'/>
+        
+        <Poster/>
+
+        <h2>商品 &nbsp; {{commodityList.name}}</h2>
+        
+        <ul ref="commodityUl">
+            <Item v-for="(commodity, key) in commodityList.commodity" :commodity='commodity' :key='key'/>
         </ul>
-        <!-- <Item :commodity='commodityList[0]'/>
-        <Item :commodity='commodityList[1]'/>
-        <Item :commodity='commodityList[2]'/> -->
     </main>
 </template>
 
 <script>
+import Poster from './Poster'
 import Item from './Item'
 export default {
     computed:{
-        infoList(){
+        commodityList(){
             const { $route, $store } = this
             const id = $route.params.id
             return $store.state.commodityList
                 .commodityList[id] 
         },
-        commodityList(){
-            return this.infoList.commodity.map( v =>{
-                const img = require('../../assets/commodity-images/' + v.img)
-                v.img = img
-                return v
-            })
-        },
     },
-    components: { Item },
-    mounted() {
-        //console.log(this.commodityList);
-    },
+    components: { Poster, Item },
 }
 </script>
 
 <style lang="scss" scoped>
 main {
     background: #eeeeee;
+    h2 {
+        border-bottom: solid orangered ;
+        width: fit-content;
+        margin: 16px;
+        padding: 0;
+        text-align: center;
+    }
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
 }
 </style>

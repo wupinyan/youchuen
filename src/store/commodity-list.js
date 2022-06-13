@@ -50,7 +50,7 @@ export default {
                     { name:'助行器', model:'富士康 FZK-3133', img:'walker2.jpg', description:'可收合。' },
                     { name:'助行器', model:'富士康 FZK-833', img:'walker3.jpg', description:'可收合，有輪子，手把處可調高低，手把處有剎車。' },
                     { name:'助行器剎車', model:'富士康 FZK-KW003', img:'walker4.jpg', description:'彈簧煞。' },
-                    { name:'助行器輔助輪', model:'富士康 FZK-KW004', img:'wwalker5.jpg', description:'' },
+                    { name:'助行器輔助輪', model:'富士康 FZK-KW004', img:'walker5.jpg', description:'' },
                 ]
             },
             bathchair:{
@@ -155,7 +155,7 @@ export default {
                     { name:'手臂式血壓計', model:'歐姆龍 HEM-7121', img:'blood-pressure-monitor8.jpg', description:'' },
                     { name:'手臂式血壓計', model:'NISSEI DSK-1011J', img:'blood-pressure-monitor10.jpg', description:'' },
                     { name:'手臂式血壓計', model:'NISSEI DS-G10J', img:'blood-pressure-monitor11.jpg', description:'' },
-                    { name:'隧道式血壓計', model:'歐姆龍 健太郎HBP-9020', img:'blood-pressure-monitor4jpg', description:'' },
+                    { name:'隧道式血壓計', model:'歐姆龍 健太郎HBP-9020', img:'blood-pressure-monitor4.jpg', description:'' },
                     { name:'隧道式血壓計', model:'歐姆龍 HEM-1000', img:'blood-pressure-monitor5.png', description:'' },
                 ]
             },
