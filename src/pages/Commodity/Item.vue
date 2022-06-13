@@ -1,6 +1,8 @@
 <template>
     <div class="item" ref="item">
-        <img :src="require('../../assets/commodity-images/'+commodity.img)" alt="暫無圖片">
+
+        <img @click.stop="show" :src="require('../../assets/commodity-images/'+commodity.img)" alt="暫無圖片">
+        
         <div class="text">
             <h2>{{commodity.name}}</h2>
             <p>
@@ -8,12 +10,23 @@
                 {{commodity.model}}
             </p>
         </div>
+
     </div>
 </template>
 
 <script>
 export default {
     props: ['commodity'],
+    data() {
+        return {
+            openMask: false
+        }
+    },
+    methods: {
+        show(){
+            this.openMask = !this.openMask
+        }
+    },
     mounted() {
         const item = this.$refs.item
         const io = new IntersectionObserver( entries =>{
@@ -55,6 +68,7 @@ export default {
             font-weight: 900;
         }
     }
+
 }
 
 .item-show {
