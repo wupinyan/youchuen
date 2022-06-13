@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main ref="page">
         
         <Poster/>
 
@@ -8,6 +8,7 @@
         <ul ref="commodityUl">
             <Item v-for="(commodity, key) in commodityList.commodity" :commodity='commodity' :key='key'/>
         </ul>
+
     </main>
 </template>
 
