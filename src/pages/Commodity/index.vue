@@ -1,26 +1,30 @@
 <template>
     <main>
 
-        <div class="mask" ref="mask" v-show="mask"></div>
+        <Overlayer :overlayer='overlayer' :overlayerInfo='overlayerInfo' @closeOverlayer='overlayer=false'/>
         
         <Poster/>
 
-        <h2  @click.stop="openMask">商品 &nbsp; {{commodityList.name}}</h2>
+        <h2>商品 &nbsp; {{commodityList.name}}</h2>
         
         <ul ref="commodityUl">
-            <Item v-for="commodity in commodityList.commodity" :commodity='commodity' :key='commodity.img'/>
+            <Item v-for="commodity in commodityList.commodity" 
+                :commodity='commodity' @openOverlayer="openOverlayer"
+                :key='commodity.img'/>
         </ul>
 
     </main>
 </template>
 
 <script>
+import Overlayer from './Overlayer'
 import Poster from './Poster'
 import Item from './Item'
 export default {
     data() {
         return {
-            mask: false
+            overlayer: false,
+            overlayerInfo: false
         }
     },
     computed:{
@@ -31,10 +35,10 @@ export default {
                 .commodityList[id] 
         },
     },
-    methods: {
-        openMask(){
-            this.mask = true
-            console.log(this.$refs.mask.offsetY);
+    methods:{
+        openOverlayer(overlayerInfo){
+            this.overlayerInfo = overlayerInfo
+            this.overlayer = true
         }
     },
     watch:{
@@ -42,21 +46,13 @@ export default {
             document.querySelector('#app').scrollTop = 0 
         }
     },
-    components: { Poster, Item },
+    components: { Overlayer, Poster, Item },
 }
 </script>
 
 <style lang="scss" scoped>
 main {
     background: #eeeeee;
-    .mask {
-        border: solid red;
-        width: 90%;
-        height: 100vh;
-        background-color: rgba(#222222, .8);
-        position: fixed;
-        z-index: 5;
-    }
     h2 {
         border-bottom: solid orangered ;
         width: fit-content;

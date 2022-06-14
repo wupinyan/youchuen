@@ -1,7 +1,8 @@
 <template>
     <div class="item" ref="item">
 
-        <img @click.stop="show" :src="require('../../assets/commodity-images/'+commodity.img)" alt="暫無圖片">
+        <img @click.stop="$emit('openOverlayer', commodity)" 
+            :src="require('../../assets/commodity-images/'+commodity.img)" alt="暫無圖片">
         
         <div class="text">
             <h2>{{commodity.name}}</h2>
@@ -17,16 +18,6 @@
 <script>
 export default {
     props: ['commodity'],
-    data() {
-        return {
-            openMask: false
-        }
-    },
-    methods: {
-        show(){
-            this.openMask = !this.openMask
-        }
-    },
     mounted() {
         const item = this.$refs.item
         const io = new IntersectionObserver( entries =>{
@@ -52,6 +43,18 @@ export default {
     opacity: 0;
     transform: translateY(10%);
     transition: all 1s;
+    // .mask {
+    //     //border: solid red;
+    //     width: 100vw;
+    //     height: 100vh;
+    //     background-color: rgba(#222222, .8);
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     z-index: 20;
+    // }
     img{
         $size: 180px;
         max-width: $size;
