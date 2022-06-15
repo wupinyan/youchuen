@@ -156,7 +156,7 @@ export default {
                     { name:'手臂式血壓計', model:'NISSEI DSK-1011J', img:'blood-pressure-monitor10.jpg', description:'' },
                     { name:'手臂式血壓計', model:'NISSEI DS-G10J', img:'blood-pressure-monitor11.jpg', description:'' },
                     { name:'隧道式血壓計', model:'歐姆龍 健太郎HBP-9020', img:'blood-pressure-monitor4.jpg', description:'' },
-                    { name:'隧道式血壓計', model:'歐姆龍 HEM-1000', img:'blood-pressure-monitor5.png', description:'' },
+                    { name:'隧道式血壓計', model:'歐姆龍 HEM-1000', img:'blood-pressure-monitor5.jpg', description:'' },
                 ]
             },
             heatingPad:{
@@ -165,7 +165,6 @@ export default {
                     { name:'熱敷墊', model:'鼎力 S766D', img:'heating-pad1.png', description:'' },
                     { name:'熱敷墊', model:'雃博 14', img:'heating-pad2.jpg', description:'' },
                     { name:'熱敷墊', model:'愛民 OO-056', img:'heating-pad3.jpg', description:'' },
-                    { name:'熱敷墊', model:'愛民 OO-058', img:'heating-pad4.jpg', description:'' },
                     { name:'電毯', model:'太陽牌', img:'heating-pad5.png', description:'' },
                     { name:'紅外線燈', model:'明宏 MH-270', img:'heating-pad6.jpg', description:'' },
                 ]

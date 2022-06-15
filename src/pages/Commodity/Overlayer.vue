@@ -1,4 +1,5 @@
 <template>
+<transition name="fade">
     <div v-if="overlayerInfo" class="overlayer" v-show="overlayer">
 
         <svg @click.stop="$emit('closeOverlayer')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
@@ -9,19 +10,26 @@
         </svg>
 
         <div class="info">
-            <img :src="require('../../assets/commodity-images/'+overlayerInfo.img)" alt="暫無圖片"/>
-            <h2>{{overlayerInfo.name}}</h2>
-             <p>
-                型號: <br>
-                {{overlayerInfo.model}}
-            </p>
-             <p v-show="overlayerInfo.description!=''">
-                商品資訊: <br>
-                {{overlayerInfo.description}}
-            </p>
+            
+            
+            <div class="img">
+                <img :src="require('../../assets/commodity-images/'+overlayerInfo.img)" alt="暫無圖片"/>
+            </div>            
+            <article>
+                <h2>{{overlayerInfo.name}}</h2>
+                <section>
+                    <h4> 型號:</h4>
+                    {{overlayerInfo.model}}
+                </section>
+                <section v-show="overlayerInfo.description!=''">
+                    <h4>商品資訊:</h4>
+                    {{overlayerInfo.description}}
+                </section>
+            </article> 
         </div>
 
     </div>
+</transition>
 </template>
 
 <script>
@@ -34,7 +42,8 @@ export default {
 .overlayer {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(#222222, .8);
+    background-color: rgba(black, .8);
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -49,23 +58,67 @@ export default {
     }
     .info {
         width: 100vw;
+        height: calc(100vh - 48px);
         position: absolute;
         top: 48px;
-        text-align: center;
-        img {
-            $size: 100vw;
-            max-width: $size;
-            max-height: $size;
+        display: flex;
+        flex-direction: column;
+
+        
+        .img {
+            height: 100%;
+            position: relative;
+            img {
+                //height: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
         }
-        h2 {
-            color: orange;
+        
+        article {
+            padding-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h2 {
+                color: orange;
+                margin: 4px;
+            }
+            section {
+                margin: 4px 5%;
+                color: whitesmoke;
+                h4 {
+                    border-bottom: solid orangered;
+                    margin: 0 auto;
+                    width: fit-content;
+                }
+            }
         }
-        p {
-            margin: 16px 5%;
-            color: whitesmoke;
+        
+    }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  height: 0;
+}
+
+@media (min-width: 768px) {
+    .overlayer > .info {
+        flex-direction: row;
+        .img {
+            width: 100%;
+        }
+        article {
+            width: 100%;
         }
     }
 }
-
-
 </style>
