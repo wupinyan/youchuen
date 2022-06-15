@@ -13,19 +13,19 @@
 @import '../../assets/style.scss';
 .meta {
     border-radius: 4px;
-    margin: 5vw auto;
-    padding: 12px 40px;
+    margin: 32px auto;
     width: fit-content;
-    background-color: $color2;
     text-align: center;
-    color: whitesmoke;
     h3{
         border-bottom: solid orange;
         margin: 0;
+        font-size: 24px;
         letter-spacing: 8px;
     }
-    p {
+    p, a {
         margin: 0;
+        color: black;
+        font-size: 24px;
         font-weight: 900;
     }
 }

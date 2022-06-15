@@ -1,7 +1,7 @@
 <template>
     <main>
 
-        <h1>聯絡佑春</h1>
+        <Poster/>
 
         <div class="meta-list">
             <Meta>
@@ -25,7 +25,7 @@
                     地址
                 </template>
                 <template v-slot:description>
-                    臺中市 東勢區 第一橫街 65號 <br>
+                    臺中市東勢區第一橫街65號 <br>
                     (東勢果菜市場正門斜對面)
                 </template>
             </Meta>
@@ -38,7 +38,7 @@
                     電子信箱
                 </template>
                 <template v-slot:description>
-                    <a style="color:whitesmoke" href="mailto:youchuen68@gmail.com?subject=佑春網站瀏覽者">
+                    <a href="mailto:youchuen68@gmail.com?subject=佑春網站瀏覽者">
                         youchuen68@gmail.com
                     </a>
                 </template>
@@ -51,19 +51,14 @@
 </template>
 
 <script>
+import Poster from './Poster'
 import Meta from './Meta.vue';
 export default {
-    components: { Meta }
+    components: { Poster, Meta }
 }
 </script>
 
 <style lang="scss" scoped>
-h1 {
-    border-bottom: solid orange 4px;
-    margin: 5vw auto;
-    width: fit-content;
-}
-
 .meta-list {
     display: flex;
     justify-content: space-around;
