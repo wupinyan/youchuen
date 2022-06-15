@@ -116,6 +116,17 @@ export default {
             flex-direction: column;
             overflow-y: scroll;
         }
+        ul::-webkit-scrollbar {
+            width: 16px;
+            opacity: 0;
+        }
+        ul::-webkit-scrollbar-track {
+            background-color: $color3;
+        }
+        ul::-webkit-scrollbar-thumb {
+            border-radius: 8px;
+            background-color: $color4;
+        }
     }
     .open-commodity-cate{
         left: 0;
