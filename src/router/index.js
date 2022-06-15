@@ -3,6 +3,7 @@ import vueRouter from 'vue-router'
 vue.use(vueRouter)
 
 import Home from '../pages/Home'
+import Commodity from '../pages/Commodity'
 import Subsidy from '../pages/Subsidy'
 import OxygenGenerator from '../pages/Oxygen-generator'
 import Contact from '../pages/Contact'
@@ -16,6 +17,7 @@ export default new vueRouter({
         },
         {
             path: '/commodity/:id',
+            component: Commodity
         },
         {
             path: '/subsidy',
