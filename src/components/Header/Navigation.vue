@@ -19,7 +19,7 @@
         <router-link to="/oxygen-generator"  active-class="selected">
             <span>氧氣機租賃</span>
         </router-link>
-        <router-link to="/connection"  active-class="selected">
+        <router-link to="/contact"  active-class="selected">
             <span>聯絡店家</span>
         </router-link>        
 
