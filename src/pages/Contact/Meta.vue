@@ -1,10 +1,10 @@
 <template>
     <div class="meta">
         <h3>
-            <slot name="name"/>
+            <slot name="name"></slot>
         </h3>
         <p>
-            <slot name="description"/>
+            <slot name="description"></slot>
         </p>
     </div>
 </template>
@@ -19,6 +19,7 @@
     h3{
         border-bottom: solid orange;
         margin: 0;
+        color: orange;
         font-size: 24px;
         letter-spacing: 8px;
     }

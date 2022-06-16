@@ -24,6 +24,7 @@ export default {
     position: relative;
     img {
         width: 100vw;
+        box-shadow: 0 0 5vw black;
     }
     h1 {
         border-left: solid orange 1vw;
