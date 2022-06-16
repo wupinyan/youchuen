@@ -5,7 +5,9 @@
         
         <Poster/>
 
-        <h2>商品 &nbsp; {{commodityList.name}}</h2>
+        <h2 class="title">網站僅展示部分商品</h2>
+
+        <h2 class="cate">商品 {{commodityList.name}}</h2>
         
         <ul ref="commodityUl">
             <Item v-for="commodity in commodityList.commodity" 
@@ -42,7 +44,7 @@ export default {
         }
     },
     watch:{
-        commodityList(){
+        '$route.path'(){
             document.querySelector('#app').scrollTop = 0 
         }
     },
@@ -53,11 +55,16 @@ export default {
 <style lang="scss" scoped>
 main {
     background: #eeeeee;
-    h2 {
-        border-bottom: solid orangered ;
+    .title {
+        border-bottom: solid orange;
+        margin: 3vw auto;
+        width: fit-content;
+    }
+    .cate {
         width: fit-content;
         margin: 16px;
         padding: 0;
+        color: orangered;
         text-align: center;
     }
     ul {

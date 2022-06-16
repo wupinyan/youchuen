@@ -31,7 +31,7 @@ export default new vueRouter({
         },
         {
             path: '/*',
-            redirect: '/oxygen-generator'
+            redirect: '/home'
         }
     ]
 })

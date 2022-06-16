@@ -1,6 +1,6 @@
 <template>
     <div class="poster">
-        <h2 ref="text">網站僅展示部分商品</h2>
+        <h2 ref="text">佑春商品</h2>
         <img src="./commodity1.png" alt="">
     </div>
 </template>
@@ -23,13 +23,14 @@ export default {
 .poster {
     position: relative;
     h2 {
-        border-bottom: solid orange;
+        // border-bottom: solid orange;
         margin: 0;
         padding: 0;
         width: max-content;
         color: whitesmoke;
-        font-size: 7vw;
-        text-shadow: 0 0 8px black;
+        font-size: 10vw;
+        text-shadow: 0 0 2vw black;
+        letter-spacing: 5vw;
         position: absolute;
         top: 65%;
         left: 50%;
