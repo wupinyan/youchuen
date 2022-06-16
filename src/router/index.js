@@ -28,7 +28,7 @@ export default new vueRouter({
             component: OxygenGenerator
         },
         {
-            path: '/connection',
+            path: '/contact',
             component: Contact
         },
         {
