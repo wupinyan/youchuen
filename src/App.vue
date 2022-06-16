@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" ref="app">
 
     <div class="display" v-if="!$store.state.error.error">
       <Header/>
@@ -19,6 +19,11 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Error from './components/Error/index.vue'
 export default {
+  watch: {
+    '$route.path'(){
+      this.$refs.app.scrollTop = 0
+    }
+  },
   components: {
     Header,
     Footer,
