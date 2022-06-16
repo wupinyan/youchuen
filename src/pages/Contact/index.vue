@@ -1,9 +1,9 @@
 <template>
     <main>
+        contact
+        <!-- <Poster/> -->
 
-        <Poster/>
-
-        <div class="meta-list">
+        <!-- <div class="meta-list">
             <Meta>
                 <template v-slot:name>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
@@ -43,7 +43,7 @@
                     </a>
                 </template>
             </Meta>
-        </div>
+        </div> -->
 
         
 
