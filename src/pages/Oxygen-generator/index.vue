@@ -1,16 +1,7 @@
 <template>
     <main>
 
-        <div class="poster">
-            <img class="background" src="./oxygen1.png" alt="">
-            <img class="image" src="./oxygen2.png" ref="image" alt="">
-            <article>
-                <h2 ref="title">氧氣機租賃</h2>
-                <p ref="scription">
-                    為呼吸困難的人提供氧氣                     
-                </p>
-            </article>
-        </div>
+        <Poster/>
 
         <Sec>
             <template v-slot:title>                
@@ -71,13 +62,13 @@
             </template>
             <template v-slot:content>     
                 <p>佑春也有販售全新氧氣機。</p>
-                <a class="sale" href="">
+                <router-link to="/commodity/oxygenGenerator" class="sale" href="">
                     前往購買
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
                         <polyline points="1,1 3,3 1,5" 
                             style="fill:none;stroke:currentColor;stroke-width:1" />
                     </svg>
-                </a>                 
+                </router-link>                 
             </template>
         </Sec>
 
@@ -85,61 +76,14 @@
 </template>
 
 <script>
+import Poster from './Poster'
 import Sec from './Sec'
 export default {
-    components: { Sec }
+    components: { Poster, Sec }
 }
 </script>
 
 <style lang="scss" scoped>
-.poster{
-    padding: 0;
-    width: 200vw;
-    height: 100vw;
-    position: relative;
-    .background{
-        $size: 100%;
-        width: $size;
-        height: $size;
-        animation: background-ani 2s;
-    }
-    @keyframes background-ani {
-        from{ opacity: 0 }
-    }
-    .image{
-        width: 50vw;
-        position: absolute;
-        top: 5%;
-        left: 5%;
-        animation: image-ani 2s;
-    }
-    @keyframes image-ani {
-        from{ left: -50% }
-    }
-    article{
-        position: absolute;
-        right: 60%;
-        top: 60%;
-        animation: article-ani 2s;
-        h2{
-            margin: 0;
-            color: red;
-            font-size: 200%;
-            font-weight: 900;
-        }
-        p{
-            margin: 3vw;
-            font-weight: 900;
-            color: white;
-            position: relative;
-        }
-    }
-    @keyframes article-ani {
-        from { right: -50% }
-    }
-    
-}
-
 .style-ul{
     list-style:square;
     margin-left: 4vw;
@@ -161,26 +105,4 @@ export default {
     transform: scale(1.2);
 }
 
-@media (min-width: 768px) {
-    .poster{
-        width: 100vw;
-        height: 50vw;
-        .image{
-            width: 40%;
-            top: 10%;
-            left: -5%;
-        }
-        article{
-            top: 20%;
-            left: unset;
-            right: 15%;
-            h2{
-                font-size: 6vw;
-            }
-            p{
-                font-size: 2vw;
-            }
-        }
-    }
-}
 </style>

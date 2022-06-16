@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 section{
-    margin: 12vw 6vw;
+    margin: 10vw 6vw;
     opacity: 0;
     position: relative;
     right: -80vw;
