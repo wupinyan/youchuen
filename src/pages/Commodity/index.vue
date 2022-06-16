@@ -43,11 +43,6 @@ export default {
             this.overlayer = true
         }
     },
-    watch:{
-        '$route.path'(){
-            document.querySelector('#app').scrollTop = 0 
-        }
-    },
     components: { Overlayer, Poster, Item },
 }
 </script>
