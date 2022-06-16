@@ -1,5 +1,5 @@
 <template>
     <main>
-        commodity
+        contact
     </main>
 </template>
