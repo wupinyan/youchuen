@@ -25,7 +25,7 @@
     p, a {
         margin: 0;
         color: black;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 900;
     }
 }

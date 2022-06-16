@@ -33,7 +33,7 @@ export default new vueRouter({
         },
         {
             path: '/*',
-            redirect: '/connection'
+            redirect: '/home'
         }
     ]
 })
