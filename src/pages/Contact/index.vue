@@ -45,5 +45,23 @@
             </Meta>
         </div>
 
+        
+
     </main>
 </template>
+
+<script>
+import Poster from './Poster'
+import Meta from './Meta.vue';
+export default {
+    components: { Poster, Meta }
+}
+</script>
+
+<style lang="scss" scoped>
+.meta-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+</style>
