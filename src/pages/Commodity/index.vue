@@ -1,5 +1,5 @@
 <template>
     <main>
-        oxygen-generator
+        commodity
     </main>
 </template>

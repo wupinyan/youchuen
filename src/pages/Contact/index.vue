@@ -1,5 +1,5 @@
 <template>
     <main>
-        oxygen-generator
+        contact
     </main>
 </template>
