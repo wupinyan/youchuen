@@ -8,7 +8,7 @@
         <h2 class="title">網站僅展示部分商品</h2>
 
         <h2 class="cate">商品 {{commodityList.name}}</h2>
-        
+
         <ul ref="commodityUl">
             <Item v-for="commodity in commodityList.commodity" 
                 :commodity='commodity' @openOverlayer="openOverlayer"

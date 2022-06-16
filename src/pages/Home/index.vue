@@ -13,8 +13,6 @@
             </li>
         </ul>
 
-        
-
     </main>
 </template>
 
