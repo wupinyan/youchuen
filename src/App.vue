@@ -3,9 +3,7 @@
 
     <div class="display" v-if="!$store.state.error.error">
       <Header/>
-      <keep-alive>
         <router-view/>
-      </keep-alive>
       <Footer/>
     </div>
 

@@ -32,9 +32,7 @@ export default {
     computed:{
         commodityList(){
             const { $route, $store } = this
-            const id = $route.path.match(/^\/commodity/) ? 
-                           $route.params.id :
-                           'none'
+            const id = $route.params.id
             return $store.state.commodityList
                 .commodityList[id] 
         },
