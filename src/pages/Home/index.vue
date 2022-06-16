@@ -48,14 +48,11 @@ export default {
         }
     },
     mounted() {
-        const ioOption = {
-            rootMargin: '0% 0% 10% 0%'
-        }
         const io = new IntersectionObserver( entries =>{
             entries.forEach( e => {
                 if (e.isIntersecting) e.target.classList.add('poster-show')
             });
-        }, ioOption)
+        })
         const posterList = this.$refs.posterList
         posterList.querySelectorAll('li').forEach( e => {
             io.observe(e)

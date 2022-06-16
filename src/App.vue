@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div id="app">
 
     <div class="display" v-if="!$store.state.error.error">
       <Header/>
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app{
+#app{
   overflow-x: hidden;
   height: 100vh;  
 }
