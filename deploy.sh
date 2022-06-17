@@ -1,19 +1,25 @@
 #!/usr/bin/env sh
-# 當發生錯誤時終止腳本運行
+
+# 当发生错误时中止脚本
 set -e
-# 建立輸出檔案
+
+# 构建
 npm run build
 
-# 移動至到打包後的dist目錄 
+# cd 到构建输出的目录下
 cd dist
 
-# 因為dist資料夾預設是被ignore的，因此在進入dist資料夾後初始化git
-git init 
+# 部署到自定义域域名
+# echo 'www.example.com' > CNAME
+
+git init
 git add -A
 git commit -m 'deploy'
 
-# 將 dist資料夾中的內容推送至遠端 hexWeek6Demo的 gh-pages分支中，並強制無條件將舊有的內容取代成目前的內容（指令 git push -f)
-git push -f https://github.com/wupinyan/youchuen.git master:gh-pages
-cd -
+# 部署到 https://<USERNAME>.github.io
+# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
-# 執行指令，在終端機輸入 deploy.sh
+# 部署到 https://<USERNAME>.github.io/<REPO>
+git push -f git@github.com:wupinyan/youchuen.git master:gh-pages
+
+cd -
