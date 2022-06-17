@@ -45,19 +45,23 @@
             </Meta>
         </div>
 
+        <Store/>
+
     </main>
 </template>
 
 <script>
 import Poster from './Poster'
 import Meta from './Meta.vue';
+import Store from './Store'
 export default {
-    components: { Poster, Meta }
+    components: { Poster, Meta, Store }
 }
 </script>
 
 <style lang="scss" scoped>
 .meta-list {
+    margin: 32px 0;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
