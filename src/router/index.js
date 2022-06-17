@@ -3,6 +3,10 @@ import vueRouter from 'vue-router'
 vue.use(vueRouter)
 
 import Home from '../pages/Home'
+import Commodity from '../pages/Commodity'
+import Subsidy from '../pages/Subsidy'
+import OxygenGenerator from '../pages/Oxygen-generator'
+import Contact from '../pages/Contact'
 
 export default new vueRouter({
     mode: 'history',
@@ -13,18 +17,19 @@ export default new vueRouter({
         },
         {
             path: '/commodity/:id',
+            component: Commodity
         },
         {
-            path: '/longterm-care',
+            path: '/subsidy',
+            component: Subsidy
         },
         {
             path: '/oxygen-generator',
+            component: OxygenGenerator
         },
         {
-            path: '/connection',
-        },
-        {
-            path: '/question/:commodity',
+            path: '/contact',
+            component: Contact
         },
         {
             path: '/*',

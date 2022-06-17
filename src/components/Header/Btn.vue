@@ -23,20 +23,18 @@ export default {
         openRootCate(v){
             const interval = 30
             if (v) {
-                //this.l1y = 8, this.l2x = 1, this.l3y = 2
+                this.l2x = 1
                 const timer = setInterval(() => {
                     this.l1y++
-                    this.l2x--
                     this.l3y--
-                    if (this.l2x <= 1) clearInterval(timer)
+                    if (this.l1y >= 9) clearInterval(timer)
                 }, interval);
             } else{
-                //this.l1y = 2, this.l2x = 9, this.l3y = 8
+                this.l2x = 9
                 const timer = setInterval(() => {
                     this.l1y--
-                    this.l2x++
                     this.l3y++
-                    if (this.l2x >= 9) clearInterval(timer)
+                    if (this.l1y <= 1) clearInterval(timer)
                 }, interval);
             }
         }

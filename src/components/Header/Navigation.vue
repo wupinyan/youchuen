@@ -13,13 +13,13 @@
                     style="fill:none;stroke:currentColor;stroke-width:1" />
             </svg>
         </a>
-        <router-link to="/longterm-care"  active-class="selected">
-            <span>長照申請</span>
+        <router-link to="/subsidy"  active-class="selected">
+            <span>補助申請</span>
         </router-link>
         <router-link to="/oxygen-generator"  active-class="selected">
             <span>氧氣機租賃</span>
         </router-link>
-        <router-link to="/connection"  active-class="selected">
+        <router-link to="/contact"  active-class="selected">
             <span>聯絡店家</span>
         </router-link>        
 
@@ -31,9 +31,9 @@
                 </svg>
             </div>
             <ul>
-                <router-link v-for="(commodity, i) in commodityList" 
-                :to="`/commodity/${commodity.id}`" active-class="selected" :key="i">
-                    <span>{{commodity.name}}</span>
+                <router-link v-for="(com, key) in commodityList" :key="key"
+                :to="`/commodity/${key}`" active-class="selected">
+                    <span>{{com.name}}</span>
                 </router-link>
             </ul>
         </div>
@@ -44,42 +44,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
     props: ['openRootCate', 'openCommodityCate'],
-    data() {
-        return {
-            commodityList:[
-                { id:1, name:'輪椅' },
-                { id:2, name:'耗材' },
-                { id:3, name:'氧氣機' },
-                { id:4, name:'代步車' },
-                { id:5, name:'拐杖' },
-                { id:6, name:'血壓計' },
-                { id:7, name:'輪椅' },
-                { id:8, name:'輪椅' },
-                { id:9, name:'血糖機' },
-                { id:10, name:'輪椅' },
-                { id:11, name:'耗材' },
-                { id:12, name:'氧氣機' },
-                { id:13, name:'代步車' },
-                { id:14, name:'拐杖' },
-                { id:15, name:'血壓計' },
-            ]
-        }
-    },
-    created() {
-        axios.get('/api/init')
-            .then( response=>{
-                this.commodityList = response.data
-            })
-            .catch( err=>{
-                if (err) {
-                    this.$store.commit('error/showError')    
-                    mail('佑春網站', '佑春網站異常')
-                } 
-            })
-    },
+    computed: {
+        ...mapState('commodityList', ['commodityList'])
+    }
 }
 </script>
 
@@ -124,9 +94,13 @@ export default {
     .commodity-cate{
         background-color: $color1;
         width: 100%;
+        height: calc(100vh - 56px);
+        overflow: hidden;
         position: absolute;
         left: 100%;
-        transition: left .3s;
+        transition: all .3s;
+        display: flex;
+        flex-direction: column;
         .pre{
             padding: 8px 12px;
             background-color: $color2;
@@ -137,8 +111,21 @@ export default {
             }
         }
         ul{
+            height: 100%;
             display: flex;
             flex-direction: column;
+            overflow-y: scroll;
+        }
+        ul::-webkit-scrollbar {
+            width: 16px;
+            opacity: 0;
+        }
+        ul::-webkit-scrollbar-track {
+            background-color: $color3;
+        }
+        ul::-webkit-scrollbar-thumb {
+            border-radius: 8px;
+            background-color: $color4;
         }
     }
     .open-commodity-cate{
@@ -150,10 +137,7 @@ export default {
     left: 0;
 }
 
-
-
-
-@media screen and (orientation: landscape) {
+@media (min-width: 768px) {
     .root-cate{
         height: 100%;
         position: static;
@@ -167,13 +151,28 @@ export default {
         }
         .commodity-cate{
             top: 100%;
-            left: unset;
-            right: 0;
-            width: 0;
-            transition: width .3s;
+            left: 0;
+            width: 100vw;
+            height: 0;
+            .pre {
+                text-align: center;
+                svg {
+                    transform: rotate(-90deg);
+                }
+            }
+            ul {
+                overflow: hidden;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-content: space-around;
+                a {
+                    margin: 0 24px;                  
+                }
+            }
         }
         .open-commodity-cate{
-            width: 300px;
+            height: 250px;
         }
     }
     .open-root-cate{

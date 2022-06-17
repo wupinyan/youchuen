@@ -1,11 +1,9 @@
 <template>
-  <div class="app">
+  <div id="app" ref="app">
 
     <div class="display" v-if="!$store.state.error.error">
       <Header/>
-      <keep-alive>
         <router-view/>
-      </keep-alive>
       <Footer/>
     </div>
 
@@ -19,6 +17,11 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Error from './components/Error/index.vue'
 export default {
+  watch: {
+    '$route.path'(){
+      this.$refs.app.scrollTop = 0
+    }
+  },
   components: {
     Header,
     Footer,
@@ -28,12 +31,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app{
+#app{
   overflow-x: hidden;
-  height: 100vh;
-  .view{
-    height: 300px;
-  }
-  
+  height: 100vh;  
 }
 </style>
