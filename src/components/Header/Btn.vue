@@ -48,7 +48,7 @@ svg{
     margin-right: 16px;
 }  
 
-@media screen and (orientation: landscape) {
+@media (min-width: 768px) {
     svg{
         display: none;
     }

@@ -62,7 +62,7 @@ header{
     } 
 }
 
-@media screen and (min-width: 786px)  {
+@media (min-width: 768px)  {
     header{
         height: 56px;
         padding: 0;

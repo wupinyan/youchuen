@@ -20,7 +20,6 @@
 @import '../../assets/style.scss';
 .store {
     margin-bottom: 32px;
-    // padding: 32px 5%;
     background-color: #dddddd;
     display: flex;
     flex-direction: column;

@@ -8,7 +8,13 @@
                 <img :src="poster.img" :style="poster.style" alt="">
                 <div class="text">
                     <h3>{{poster.title}}</h3>
-                    <p>{{poster.scription}}</p>
+                    <router-link :to="poster.commodityPath">
+                        <p>前往觀看</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
+                            <polyline points="1,1 3,3 1,5" 
+                                style="fill:none;stroke:currentColor;stroke-width:1" />
+                        </svg>
+                    </router-link>
                 </div>
             </li>
         </ul>
@@ -23,24 +29,34 @@ export default {
         return {
             posterList: [
                 { 
-                    title:'電動代步車', scription:'長者出行更安全方便',
-                    style:{right:0}, img:require("./home1.png")
+                    title: '電動代步車',
+                    style: {right:0}, 
+                    img: require("./home1.png"),
+                    commodityPath: '/commodity/mobilityScooter'
                 },
                 { 
-                    title:'氣墊床', scription:'避免壓瘡',
-                    style:{left:0}, img:require("./home2.png")
+                    title:'氣墊床',
+                    style:{left:0}, 
+                    img:require("./home2.png"),
+                    commodityPath: '/commodity/airBed'
                 },
                 { 
-                    title:'輪椅', scription:'',
-                    style:{right:0}, img:require("./home3.png")
+                    title:'輪椅',
+                    style:{right:0}, 
+                    img:require("./home3.png"),
+                    commodityPath: '/commodity/wheelchair'
                 },
                 { 
-                    title:'血壓計', scription:'',
-                    style:{right:0}, img:require("./home4.png")
+                    title:'血壓計',
+                    style:{right:0}, 
+                    img:require("./home4.png"),
+                    commodityPath: '/commodity/bloodPressureMonitor'
                 },
                 { 
-                    title:'血糖機', scription:'',
-                    style:{right:0}, img:require("./home5.png")
+                    title:'血糖機',
+                    style:{right:0}, 
+                    img:require("./home5.png"),
+                    commodityPath: '/commodity/glucoseMeter'
                 },
             ]
         }
@@ -85,14 +101,28 @@ main > .poster-list{
             h3{
                 margin: 0;
                 width: fit-content;
-                color: red;
+                color: orangered;
                 font-size: 7vw;
-            }
-            p{
+            }        
+            a {
                 margin: 0;
-                //color: blue;
-                font-size: 4vw;
-            }            
+                color: blue;
+                p {
+                    margin: 0;
+                    color: 2vw;
+                    font-size: 2vw;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                svg {
+                    display: inline-block;
+                    height: 3vw;
+                    vertical-align: middle;
+                }
+            }
+            a:hover {
+                color: red;
+            }
         }
     }
     .poster-show {

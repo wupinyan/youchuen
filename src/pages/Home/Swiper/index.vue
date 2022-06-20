@@ -2,12 +2,6 @@
     <div class="swiper">
 
         <ul class="poster-list" :style="{left,transition:this.transitionValue}" ref="posterList">
-            <li>
-                <img src="./home-2-4.png" alt="">
-                <article class="article-show">
-                    <h3>伴您康復</h3>
-                </article>
-            </li>
 
             <li v-for="(poster,key) in posterList" :key="key">
                 <img :src="poster.img" alt="">
@@ -17,12 +11,6 @@
                 </article>
             </li>
 
-            <li>
-                <img src="./home-2-1.png" alt="">
-                <article class="article-show">
-                    <h3>幫您孝順的夥伴</h3>
-                </article>
-            </li>
         </ul>
 
         <div class="btn-list" ref="btn">
@@ -31,7 +19,7 @@
                     style="fill:none;stroke:currentColor;stroke-width:2" />
             </svg> 
             <ul>
-                <li v-for="key in posterList.length" :class="{selected:index===key?true:false}" :key="key"/>
+                <li v-for="key in posterInfo.length" :class="{selected:index===key?true:false}" :key="key"/>
             </ul>
             <svg @click.stop="clickBtn(1)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 6"> 
                 <polyline points="1,1 3,3 1,5" 
@@ -48,27 +36,38 @@ export default {
         return {
             index: 1,
             transition: true,
-            posterList: [
+            posterInfo: [
                 { 
                     title:'幫您孝順的夥伴', scription:'',
-                    img:require("./home-2-1.png")
+                    img:"./images/home-2-1.png"
                 },
                 { 
                     title:'長照補助', scription:'本店可協助您申請長趙',
-                    img:require("./home-2-2.png")
+                    img:"./images/home-2-2.png"
                 },
                 { 
                     title:'各種醫療器材', scription:'',
-                    img:require("./home-2-3.png")
+                    img:"./images/home-2-3.png"
                 },
                 { 
                     title:'伴您康復', scription:'',
-                    img:require("./home-2-4.png")
+                    img:"./images/home-2-4.png"
                 },
             ]
         }
     },
     computed: {
+        posterList(){
+            const newPosterInfo = this.posterInfo.map( v=>{
+                v.img = require(''+v.img)
+                return v
+            })
+
+            newPosterInfo.unshift( ...newPosterInfo.slice(-1) )
+            newPosterInfo.push( ...newPosterInfo.slice(1,2) )
+
+            return newPosterInfo
+        },
         left(){
             return this.index * -100 +'vw'
         },
@@ -78,8 +77,8 @@ export default {
     },
     methods:{
         transfer(x){
-            const {index, posterList} = this
-            const total = posterList.length
+            const {index, posterInfo} = this
+            const total = posterInfo.length
             
             if (index>=total && x==1) {
                 this.transition = false

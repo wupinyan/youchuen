@@ -43,18 +43,6 @@ export default {
     opacity: 0;
     transform: translateY(10%);
     transition: all 1s;
-    // .mask {
-    //     //border: solid red;
-    //     width: 100vw;
-    //     height: 100vh;
-    //     background-color: rgba(#222222, .8);
-    //     position: fixed;
-    //     top: 0;
-    //     left: 0;
-    //     right: 0;
-    //     bottom: 0;
-    //     z-index: 20;
-    // }
     img{
         $size: 180px;
         max-width: $size;
