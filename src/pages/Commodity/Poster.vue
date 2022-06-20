@@ -23,7 +23,6 @@ export default {
 .poster {
     position: relative;
     h2 {
-        // border-bottom: solid orange;
         margin: 0;
         padding: 0;
         width: max-content;
