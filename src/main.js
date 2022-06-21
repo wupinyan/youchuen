@@ -9,5 +9,5 @@ import store from './store'
 new Vue({
   render: h => h(App),
   router,
-  store
+  store,
 }).$mount('#app')
