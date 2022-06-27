@@ -42,7 +42,7 @@ export default {
                     img:"./images/home-2-1.png"
                 },
                 { 
-                    title:'長照補助', scription:'本店可協助您申請長趙',
+                    title:'長照補助', scription:'本店可協助您申請長照',
                     img:"./images/home-2-2.png"
                 },
                 { 
